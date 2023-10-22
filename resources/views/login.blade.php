@@ -36,6 +36,10 @@
                             Login
                         </button>
                         </f </form>
+
+                        <div>
+                            Regis
+                        </div>
                 </div>
             </div>
         </div>
