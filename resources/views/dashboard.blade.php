@@ -5,9 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initialscale=1">
     <title>GD5_B_11407</title>
-    <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Google Font: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Tai+Heritage+Pro:wght@400;700&display=swap"
+        rel="stylesheet">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <!-- Theme style -->
@@ -17,6 +20,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ECECEC;
+        }
+
         .list-group-item.custom-bg-color {
             background-color: #F9A835;
             /* transition: background-color 0.3s; */
@@ -24,6 +32,8 @@
 
         .list-group-item.custom-bg-color:hover {
             background-color: #DA9430;
+            text-decoration: none;
+            color: inherit;
         }
 
         /* .list-group-item.custom-bg-color:active {
@@ -31,7 +41,6 @@
         } */
         .list-group-item.custom-bg-color:active {
             background-color: #DA9430;
-            /* Replace "different-color" with the desired color */
         }
 
         .list-group-item {
@@ -48,17 +57,25 @@
             <div class="d-flex sidebar-heading border-bottom gap-3 p-4" style="background-color: #042F66">
                 <img src="{{ asset('img/pfp.jpg') }}" alt="logo" class="img-fluid rounded-4" style="width: 4rem">
                 <div class="text-white fw-bold d-flex flex-column justify-content-center align-items-start">
-                    <p class="mb-0" style="font-size: 16px">Putri Cantika</p>
+                    <p class="mb-0" style="font-size: 16px">Putri</p>
                     <p class="mb-0" style="font-size: 12px">12 MIPA 2</p>
                 </div>
 
             </div>
             <div class="list-group list-group-flush">
-                <a class="list-group-item p-3 custom-bg-color" href="#!">Home</a>
-                <a class="list-group-item p-3 custom-bg-color" href="#!">Profil</a>
-                <a class="list-group-item p-3 custom-bg-color" href="#!">Jadwal</a>
-                <a class="list-group-item p-3 custom-bg-color" href="#!">Pembayaran SPP</a>
-                <a class="list-group-item p-3 custom-bg-color" href="#!">Logout</a>
+                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ url('/') }}"><i
+                        class="fas fa-house"></i><span style="margin-left: 10px">Home</span></a>
+                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ url('/profile') }}"><i
+                        class="fas fa-user"></i><span style="margin-left: 14px">Profil</span></a>
+                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="#!"><i
+                        class="fas fa-calendar-days"></i>
+                    <span style="margin-left: 10px">Jadwal</span></a>
+                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="#!"><i
+                        class="fas fa-wallet"></i><span style="margin-left: 12px">Pembayaran
+                        SPP</span></a>
+                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="#!"><i
+                        class="fas fa-right-from-bracket"></i>
+                    <span style="margin-left: 8px">Logout</span></a>
             </div>
         </div>
         <!-- Page content wrapper-->
@@ -66,10 +83,11 @@
             <!-- Top navigation-->
             <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
                 <div class="container-fluid">
-                    <button class="btn" id="sidebarToggle"><i class="fas fa-bars"></i></button>
+                    <button class="btn" id="sidebarToggle" style="color: #042F66"><i
+                            class="fas fa-bars"></i></button>
                     <div class="" id="">
                         <div class="d-flex align-items-center ms-auto mt-2 mt-lg-0 gap-3">
-                            <p class="m-0">Semesta Internasional High School</p>
+                            <p class="m-0 fw-bold fs-5">Semesta Internasional High School</p>
                             <img style="width: 4rem" src="{{ asset('img/logosekolah.png') }}" alt="logo_sekolah">
                         </div>
                     </div>
@@ -77,7 +95,7 @@
             </nav>
             <!-- Page content-->
             <div class="container-fluid">
-
+                @yield('content')
             </div>
         </div>
     </div>
