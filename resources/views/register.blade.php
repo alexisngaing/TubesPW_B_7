@@ -107,7 +107,7 @@
                             <input type="password" class="form-control shadow-input" id="confirmpass">
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary" style="background-color: #042F66; border-color: #042F66;">Login</button>
+                            <button type="login" class="btn btn-primary" style="background-color: #042F66; border-color: #042F66;">Login</button>
                         </div>
                     </form>
                 </div>
