@@ -16,15 +16,15 @@
         </div>
         <div class="flex-tertiary gap-4">
             <div class="tertiary-headline rounded-2">
-                <h4 class="secondary-title">Sosialisasi Penyalahgunaan Narkotika oleh Polsek Sleman</h4>
+                <h4 class="tertiary-title">Sosialisasi Penyalahgunaan Narkotika oleh Polsek Sleman</h4>
                 <p class="fw-medium" style="padding-left: 1.5rem; padding-top: .7rem;">Senin, 6 November 2023</p>
             </div>
             <div class="tertiary-headline rounded-2">
-                <h4 class="secondary-title">Informasi Pergantian Ruangan Kelas 12 MIPA & 11 MIPA</h4>
+                <h4 class="tertiary-title">Informasi Pergantian Ruangan Kelas 12 MIPA & 11 MIPA</h4>
                 <p class="fw-medium" style="padding-left: 1.5rem; padding-top: .7rem;">Kamis, 26 Oktober 2023</p>
             </div>
             <div class="tertiary-headline rounded-2">
-                <h4 class="secondary-title">Surat Keputusan Kepala Sekolah SHIS Tentang Kegiatan HUT Pramuka
+                <h4 class="tertiary-title">Surat Keputusan Kepala Sekolah SHIS Tentang Kegiatan HUT Pramuka
                 </h4>
                 <p class="fw-medium" style="padding-left: 1.5rem; padding-top: .7rem;">Selasa, 1 Agustus 2023</p>
             </div>
