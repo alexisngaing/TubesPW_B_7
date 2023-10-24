@@ -36,15 +36,35 @@
             color: inherit;
         }
 
-        /* .list-group-item.custom-bg-color:active {
-            background-color: #DA9430;
-        } */
         .list-group-item.custom-bg-color:active {
             background-color: #DA9430;
         }
 
         .list-group-item {
             border: none;
+        }
+
+        .school-nav {
+            margin: 0;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .logo {
+            width: 4rem;
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 412px) {
+            .school-nav {
+                margin: 0;
+                font-weight: bold;
+                font-size: 14px;
+            }
+
+            .logo {
+                width: 3rem;
+            }
         }
     </style>
 
@@ -87,8 +107,8 @@
                             class="fas fa-bars"></i></button>
                     <div class="" id="">
                         <div class="d-flex align-items-center ms-auto mt-2 mt-lg-0 gap-3">
-                            <p class="m-0 fw-bold fs-5">Semesta Internasional High School</p>
-                            <img style="width: 4rem" src="{{ asset('img/logosekolah.png') }}" alt="logo_sekolah">
+                            <p class="school-nav">Semesta Internasional High School</p>
+                            <img class="logo" src="{{ asset('img/logosekolah.png') }}" alt="logo_sekolah">
                         </div>
                     </div>
                 </div>

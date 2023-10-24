@@ -1,32 +1,10 @@
 @extends('dashboard')
 @section('content')
-    <style>
-        .top-profile {
-            width: 40rem;
-            height: 15rem;
-            background-color: rgb(255, 255, 255);
-        }
-
-        .down-profile {
-            width: 40rem;
-            height: 27rem;
-            background-color: rgb(255, 255, 255);
-        }
-
-        .down-profile p {
-            font-size: 12px;
-            margin-bottom: 0;
-        }
-
-        .down-profile h6 {
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-    </style>
-    <div class="container-details d-flex justify-content-center">
-        <div class="p-4 mt-4">
+    <link rel="stylesheet" href="{{ asset('css/profile-style.css') }}">
+    <div class="container-details">
+        <div class="flex-container p-4 mt-4">
             <div class="d-flex top-profile rounded-2 mb-3">
-                <img class="p-4" src="{{ asset('img/top-pfp.jpg') }}" alt="foto pas">
+                <img class="profile p-4" src="{{ asset('img/top-pfp.jpg') }}" alt="foto pas">
                 <div class="d-flex flex-column justify-content-center">
                     <h3 class="fw-semibold">Putri</h3>
                     <p class="mb-2">210711407</p>
