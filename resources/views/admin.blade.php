@@ -103,14 +103,15 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul class="navbar-nav pe-2">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/admin') }}">Login as Admin</a>
+                            <a class="nav-link active rounded mt-1 ms-0 text-light" aria-current="page"
+                                style="background-color: #F9A835; padding: 3px 15px;" href="{{ url('/admin') }}">Login
+                                as Admin</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/register') }}">Register</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active rounded mt-1 ms-0 text-light" aria-current="page" href="#"
-                                style="background-color: #F9A835; padding: 3px 15px;">Login</a>
+                            <a class="nav-link" href="{{ url('/login') }}">Login</a>
                         </li>
                     </ul>
                 </div>
@@ -121,7 +122,7 @@
         <div class="container d-flex flex-column justify-content-center" style="width: 600px;">
             <div class="card bg-glass " style="margin-top: 250px;">
                 <div class="card-body">
-                    <form class="form" action="{{ url('/') }}">
+                    <form class="form" action="{{ url('/admin-home') }}">
                         @csrf
                         <div>
                             <h4 class="mb-3 text-center" style="color: #042F66">LOGIN</h4>
@@ -129,17 +130,13 @@
                         <div class="form-floating mb-2">
                             <input type="text" class="form-control" id="floatingInput" placeholder="Nama Pegawai"
                                 required />
-                            <label for="floatingInput">Nomor Induk Siswa</label>
+                            <label for="floatingInput">No. Pegawai</label>
                         </div>
                         <!-- Password -->
                         <div class="form-floating">
-                            <input type="password" class="form-control mb-2" id="floatingPassword"
-                                placeholder="Password" required />
+                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
+                                required />
                             <label for="floatingPassword">Password</label>
-                        </div>
-                        <!-- Forgot Password -->
-                        <div class="text-end">
-                            <a href="#">Forgot Password</a>
                         </div>
                         <!-- Submit button -->
                         <button type="submit" style="width: 25%;background-color:#042F66; border-color:#042F66"
