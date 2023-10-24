@@ -17,12 +17,15 @@ Route::get('/', function () {
     return view('manageUser');
 });
 
+
 Route::get('/profile', function () {
     return view('/profile');
 });
 
+
 Route::get('/register', function () {
     return view('register');
+
 });
 
 Route::get('/home', function () {
