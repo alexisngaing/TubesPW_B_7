@@ -1,0 +1,102 @@
+.top-profile {
+    width: 45rem;
+    height: 15rem;
+    background-color: rgb(255, 255, 255);
+}
+
+.down-profile {
+    width: 45rem;
+    background-color: rgb(255, 255, 255);
+}
+
+.down-profile p {
+    font-size: 12px;
+    margin-bottom: 0;
+}
+
+.down-profile h6 {
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.flex-container {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Responsive */
+
+/* Tablet */
+@media screen and (max-width: 970px) {
+    .top-profile {
+        width: 100%;
+        background-color: rgb(255, 255, 255);
+    }
+
+    .down-profile {
+        width: 100%;
+        background-color: rgb(255, 255, 255);
+    }
+
+    .flex-container {
+        display: inline-block;
+        justify-content: center;
+    }
+
+    .down-profile p {
+        font-size: 12px;
+        margin-bottom: 0;
+    }
+
+    .down-profile h6 {
+        font-weight: 600;
+        margin-bottom: 1rem;
+        font-size: 14px;
+    }
+
+    .top-profile h3 {
+        font-size: 20px;
+    }
+
+    .top-profile p {
+        font-size: 14px;
+    }
+}
+
+/* Handphone */
+@media screen and (max-width: 420px) {
+    .top-profile {
+        width: 100%;
+        background-color: rgb(255, 255, 255);
+    }
+
+    .down-profile {
+        width: 100%;
+        background-color: rgb(255, 255, 255);
+    }
+
+    .flex-container {
+        display: inline;
+        justify-content: center;
+    }
+
+    .down-profile p {
+        font-size: 12px;
+        margin-bottom: 0;
+    }
+
+    .down-profile h6 {
+        font-weight: 600;
+        margin-bottom: 1rem;
+        font-size: 14px;
+    }
+
+    .top-profile h3 {
+        font-size: 20px;
+    }
+
+    .top-profile p {
+        font-size: 14px;
+    }
+}

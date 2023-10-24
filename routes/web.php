@@ -26,5 +26,5 @@ Route::get('/jadwal', function () {
 });
 
 Route::get('/home', function () {
-    return view('Home');
+    return view('home');
 });
