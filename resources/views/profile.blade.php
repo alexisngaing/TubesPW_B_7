@@ -3,7 +3,7 @@
     <link rel="stylesheet" href="{{ asset('css/profile-style.css') }}">
     <div class="container-details">
         <div class="flex-container p-4 mt-4">
-            <div class="d-flex top-profile rounded-2 mb-3">
+            <div class="d-flex top-profile rounded-2 mb-3 shadow-sm">
                 <img class="profile p-4" src="{{ asset('img/top-pfp.jpg') }}" alt="foto pas">
                 <div class="d-flex flex-column justify-content-center">
                     <h3 class="fw-semibold">Putri</h3>
@@ -12,7 +12,7 @@
                     <p class="mb-2">Status: Aktif</p>
                 </div>
             </div>
-            <div class="down-profile rounded-2">
+            <div class="down-profile rounded-2 shadow-sm">
                 <div class="p-4">
                     <p>Nama Lengkap</p>
                     <h6>Putri</h6>
