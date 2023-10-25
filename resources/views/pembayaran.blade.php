@@ -1,5 +1,18 @@
 @extends('dashboard')
 @section('content')
+    <style>
+        td,
+        th {
+            padding-left: 6px;
+            padding-right: 6px;
+        }
+
+        @media screen and (max-width: 920px) {
+            .table-container {
+                overflow-x: auto;
+            }
+        }
+    </style>
     <!-- modal -->
     <div class="modal fade" id="modal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -25,18 +38,17 @@
     <!-- Page content-->
     <div class="container-fluid" style="background-color: #F5F5F5; padding-top: 1px;">
         <div class="card"
-            style="width: 90rem; height: 50rem; margin-top: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);">
+            style="max-width: 150rem; height: 100vh; margin-top: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);">
             <div class="card-body">
                 <div class="card-title">
                     <h1>Informasi Pembayaran <span><i class="fa-solid fa-circle-exclamation fa-2xs" type="button"
                                 data-bs-toggle="modal" data-bs-target="#modal1"></i></span></h1>
-
                 </div>
                 <br>
                 <div class="card-title">
                     <h5>Tagihan Pembayaran</h5>
                 </div>
-                <div style="display: flex;">
+                <div class="table-container" style="display: flex;">
                     <table class="table-bordered" style="width: 100%; max-height: 500px; margin-top: 20px;">
                         <thead style="background-color: #042F66; color: white; height: 50px;">
                             <tr>
@@ -65,8 +77,8 @@
                 <div class="card-title">
                     <h5>History Pembayaran</h5>
                 </div>
-                <div style="display: flex;">
-                    <table class="table-bordered" style="width: 100%; max-height: 500px; margin-top: 20px;">
+                <div class="table-container" style="display: flex;">
+                    <table class="table-bordered" style="width: 100%; margin-top: 20px;">
                         <thead style="background-color: #042F66; color: white; height: 50px;">
                             <tr>
                                 <th class="text-center" style="width: 100px;">Tanggal Pembayaran</th>
@@ -112,7 +124,6 @@
                                 <td class="text-center">Rp.0,00</td>
                             </tr>
                         </tbody>
-
                     </table>
                 </div>
             </div>

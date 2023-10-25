@@ -19,10 +19,10 @@
         }
 
         .data-control-show-select {
-            position: relative;
+            position: absolute;
             display: flex;
             top: 0;
-            left: 0;
+            right: 0;
         }
 
         .tahun-select {
