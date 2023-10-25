@@ -12,17 +12,13 @@
     <style>
         .shadow-input {
             box-shadow: 0 0 10px rgba(4, 47, 102, 0.5);
-            /* Ubah intensitas bayangan */
             transition: box-shadow 0.3s;
-            /* Efek perubahan saat input mendapatkan fokus */
         }
 
         .shadow-input:focus {
             box-shadow: 0 0 15px rgba(4, 47, 102, 0.8);
-            /* Bayangan yang lebih terlihat saat input mendapatkan fokus */
         }
 
-        /* Tambahkan gaya untuk label yang tebal (bold) */
         label {
             font-weight: bold;
         }
@@ -43,17 +39,14 @@
             margin: 0 auto;
         }
 
-        /* Tambahkan efek gelap sebelah kiri gambar */
         body::before {
             content: "";
             position: absolute;
             top: 0;
             left: 0;
             width: 80%;
-            /* Ubah lebar sesuai keinginan */
             height: 130%;
             background: linear-gradient(to right, rgba(0, 0, 0, 0.7), transparent);
-            /* Gradien dari hitam ke transparan */
         }
 
         .form-control {
@@ -77,8 +70,13 @@
             width: 4rem;
         }
 
+        .nav-active {
+            background-color: #F9A835;
+            padding: 3px 15px;
+        }
+
         /* Responsive */
-        @media screen and (max-width: 420px) {
+        @media screen and (max-width: 920px) {
             .school-name {
                 display: none;
             }
@@ -93,6 +91,12 @@
 
             .logo {
                 width: 3rem;
+            }
+
+            .nav-active {
+                background-color: #F9A835;
+                padding: 3px 15px;
+                width: 5.7rem;
             }
         }
     </style>
@@ -118,8 +122,7 @@
                             <a class="nav-link" href="{{ url('/admin') }}">Login as Admin</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active rounded mt-1 ms-0 text-light" aria-current="page"
-                                style="background-color: #F9A835; padding: 3px 15px;"
+                            <a class="nav-link nav-active active rounded mt-1 ms-0 text-light" aria-current="page"
                                 href="{{ url('/register') }}">Register</a>
                         </li>
                         <li class="nav-item">
@@ -134,7 +137,8 @@
                 <div class="card-body">
                     <form class="form" action="{{ url('/login') }}">
                         <div>
-                            <h4 class="mb-3 text-center" style="color: #042F66; font-weight: bold;">Registrasi</h4>
+                            <h4 class="mb-3 text-center fw-bold" style="color: #042F66; font-weight: bold;">Registrasi
+                            </h4>
                         </div>
 
                         <div class="mb-3">

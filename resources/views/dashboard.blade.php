@@ -77,13 +77,13 @@
             <div class="d-flex sidebar-heading border-bottom gap-3 p-4" style="background-color: #042F66">
                 <img src="{{ asset('img/pfp.jpg') }}" alt="logo" class="img-fluid rounded-4" style="width: 4rem">
                 <div class="text-white fw-bold d-flex flex-column justify-content-center align-items-start">
-                    <p class="mb-0" style="font-size: 16px">Putri</p>
+                    <p class="mb-0" style="font-size: 16px">Student Name</p>
                     <p class="mb-0" style="font-size: 12px">12 MIPA 2</p>
                 </div>
 
             </div>
             <div class="list-group list-group-flush">
-                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ url('/') }}"><i
+                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ url('/home') }}"><i
                         class="fas fa-house"></i><span style="margin-left: 10px">Home</span></a>
                 <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ url('/profile') }}"><i
                         class="fas fa-user"></i><span style="margin-left: 14px">Profil</span></a>
