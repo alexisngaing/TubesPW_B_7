@@ -7,9 +7,36 @@
             padding-right: 6px;
         }
 
+        .card {
+            max-width: 150rem;
+            margin-top: 10px;
+            height: 100vh;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+
         @media screen and (max-width: 920px) {
             .table-container {
                 overflow-x: auto;
+            }
+
+            .card {
+                max-width: 150rem;
+                margin-top: 10px;
+                height: 100vh;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            }
+        }
+
+        @media screen and (max-width: 420px) {
+            .table-container {
+                overflow-x: auto;
+            }
+
+            .card {
+                max-width: 150rem;
+                margin-top: 10px;
+                height: 100%;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
             }
         }
     </style>
@@ -36,13 +63,12 @@
     </div>
 
     <!-- Page content-->
-    <div class="container-fluid" style="background-color: #F5F5F5; padding-top: 1px;">
-        <div class="card"
-            style="max-width: 150rem; height: 100vh; margin-top: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);">
+    <div class="container-fluid" style="padding-top: 1rem;">
+        <div class="card">
             <div class="card-body">
                 <div class="card-title">
-                    <h1>Informasi Pembayaran <span><i class="fa-solid fa-circle-exclamation fa-2xs" type="button"
-                                data-bs-toggle="modal" data-bs-target="#modal1"></i></span></h1>
+                    <h3>Informasi Pembayaran <span><i class="fa-solid fa-circle-exclamation fa-2xs" type="button"
+                                data-bs-toggle="modal" data-bs-target="#modal1"></i></span></h3>
                 </div>
                 <br>
                 <div class="card-title">
