@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('login');
 });
 
 
@@ -32,6 +32,10 @@ Route::get('/pembayaran', function () {
 
 Route::get('/login', function () {
     return view('login');
+});
+
+Route::get('/login-copy', function () {
+    return view('login-copy');
 });
 
 Route::get('/register', function () {

@@ -20,7 +20,7 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-image: url('images/8c133d30490aee2c8573657decda8bf9.jpg');
+            background-image: url('images/background.jpg');
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
@@ -31,7 +31,7 @@
         .card {
             background-color: rgba(255, 255, 255, 0.8);
             width: 80%;
-            margin: 0 auto;
+            max-width: 600px;
         }
 
         body::before {
@@ -40,7 +40,7 @@
             top: 0;
             left: 0;
             width: 80%;
-            height: 200%;
+            height: 100vh;
             background: linear-gradient(to right, rgba(0, 0, 0, 0.7), transparent);
         }
 
@@ -65,8 +65,13 @@
             width: 4rem;
         }
 
+        .nav-active {
+            background-color: #F9A835;
+            padding: 3px 15px;
+        }
+
         /* Responsive */
-        @media screen and (max-width: 420px) {
+        @media screen and (max-width: 995px) {
             .school-name {
                 display: none;
             }
@@ -82,13 +87,23 @@
             .logo {
                 width: 3rem;
             }
+
+            .nav-active {
+                background-color: #F9A835;
+                padding: 3px 15px;
+                width: 4.3rem;
+            }
+
+            .card {
+                background-color: rgba(255, 255, 255, 0.8);
+                width: 80%;
+            }
         }
     </style>
 </head>
 
 <body>
-    <header>
-        @csrf
+    <section>
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
                 <div class="d-flex gap-2 p-2">
@@ -109,22 +124,21 @@
                             <a class="nav-link" href="{{ url('/register') }}">Register</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active rounded mt-1 ms-0 text-light" aria-current="page" href="#"
-                                style="background-color: #F9A835; padding: 3px 15px;">Login</a>
+                            <a class="nav-link nav-active active rounded mt-1 ms-0 text-light" aria-current="page"
+                                href="#">Login</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-    </header>
-    <section class=" align-items-center h-100">
-        <div class="container d-flex flex-column justify-content-center" style="width: 600px;">
-            <div class="card bg-glass " style="margin-top: 250px;">
+
+        <div class="container d-flex flex-column justify-content-center align-items-center" style="padding-top: 10rem;">
+            <div class="card bg-glass">
                 <div class="card-body">
-                    <form class="form" action="{{ url('/') }}">
+                    <form class="form" action="{{ url('/home') }}">
                         @csrf
                         <div>
-                            <h4 class="mb-3 text-center" style="color: #042F66">LOGIN</h4>
+                            <h4 class="mb-3 text-center fw-bold" style="color: #042F66">LOGIN</h4>
                         </div>
                         <div class="form-floating mb-2">
                             <input type="text" class="form-control" id="floatingInput" placeholder="Nama Pegawai"
@@ -138,7 +152,7 @@
                             <label for="floatingPassword">Password</label>
                         </div>
                         <!-- Forgot Password -->
-                        <div class="text-end">
+                        <div class="text-end fs-6">
                             <a href="#">Forgot Password</a>
                         </div>
                         <!-- Submit button -->
