@@ -135,7 +135,7 @@
         <div class="container d-flex flex-column justify-content-center align-items-center" style="padding-top: 10rem;">
             <div class="card bg-glass">
                 <div class="card-body">
-                    <form class="form" action="{{ url('/home') }}">
+                    <form class="form" method="POST" action="{{ route('actionLogin') }}">
                         @csrf
                         <div>
                             <h4 class="mb-3 text-center fw-bold" style="color: #042F66">LOGIN</h4>
