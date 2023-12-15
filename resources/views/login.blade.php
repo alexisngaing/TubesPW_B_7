@@ -135,19 +135,24 @@
         <div class="container d-flex flex-column justify-content-center align-items-center" style="padding-top: 10rem;">
             <div class="card bg-glass">
                 <div class="card-body">
+                    @if (session('error'))
+                        <div class="alert alert-danger">
+                            {{ session('error') }}
+                        </div>
+                    @endif
                     <form class="form" method="POST" action="{{ route('actionLogin') }}">
                         @csrf
                         <div>
                             <h4 class="mb-3 text-center fw-bold" style="color: #042F66">LOGIN</h4>
                         </div>
                         <div class="form-floating mb-2">
-                            <input type="text" class="form-control" id="floatingInput" placeholder="Nama Pegawai"
-                                required />
+                            <input type="text" class="form-control" id="floatingInput" name="nis"
+                                placeholder="No Induk Siswa" required />
                             <label for="floatingInput">Nomor Induk Siswa</label>
                         </div>
                         <!-- Password -->
                         <div class="form-floating">
-                            <input type="password" class="form-control mb-2" id="floatingPassword"
+                            <input type="password" class="form-control mb-2" id="floatingPassword" name="password"
                                 placeholder="Password" required />
                             <label for="floatingPassword">Password</label>
                         </div>

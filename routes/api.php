@@ -14,9 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/register', [App\Http\Controllers\Api\AuthController::class, 'register']);
-Route::post('/login', [App\Http\Controllers\Api\AuthController::class, 'actionLogin'])->name('actionLogin');
-
-Route::group(['middleware' => 'auth:api'], function () {
-    Route::get('/home', [App\Http\Controllers\Api\HomeController::class, 'index']);
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
 });
+
+// Route::post('/register', [App\Http\Controllers\Api\AuthController::class, 'register']);
+// Route::post('/login', [App\Http\Controllers\Api\AuthController::class, 'actionLogin'])->name('actionLogin');
+
+// Route::get('home', [App\Http\Controllers\Api\HomeController::class, 'index']);
+// Route::group(['middleware' => 'auth:api'], function () {
+//     Route::get('home', [App\Http\Controllers\Api\HomeController::class, 'index']);
+// });

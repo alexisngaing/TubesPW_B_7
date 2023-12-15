@@ -11,7 +11,6 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-    public $timestamps = false;
     protected $table = 'users';
     protected $primaryKey = 'nis';
 
@@ -32,6 +31,8 @@ class User extends Authenticatable
         'penjurusan',
         'asal_sekolah',
         'alamat',
+        'verify_key',
+        'active',
         // 'foto',
     ];
 
