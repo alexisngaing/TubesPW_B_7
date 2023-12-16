@@ -28,6 +28,8 @@
                     <h6>{{ Auth::user()->asal_sekolah }}</h6>
                     <p>Alamat</p>
                     <h6>{{ Auth::user()->alamat }}</h6>
+
+                    <a href="{{ route('profile.edit') }}" class="btn btn-primary mt-3">Edit Profile</a>
                 </div>
             </div>
         </div>
