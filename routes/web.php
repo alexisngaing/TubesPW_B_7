@@ -28,3 +28,9 @@ Route::get('logout', [LoginController::class, 'actionLogout'])->name('actionLogo
 
 Route::get('home', [HomeController::class, 'index'])->name('home')->middleware('auth');
 Route::get('profile', [ProfileController::class, 'index'])->name('profile')->middleware('auth');
+
+Route::get('/forgetPass', function () {
+    return view('forgetPass');
+});
+
+Route::post('actionForget', [LoginController::class, 'actionForget'])->name('actionForget');

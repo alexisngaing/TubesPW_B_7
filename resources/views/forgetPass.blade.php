@@ -103,68 +103,66 @@
 
 <body>
     <section>
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <div class="container-fluid">
-                <div class="d-flex gap-2 p-2">
-                    <img class="logo" src="{{ asset('img/logosekolah.png') }}" alt="logo-sekolah">
-                    <h3 class="school-name">Semesta International High School</h3>
-                    <h3 class="school-name-short">SIHS</h3>
-                </div>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                    <ul class="navbar-nav pe-2">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/admin') }}">Login as Admin</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/register') }}">Register</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link nav-active active rounded mt-1 ms-0 text-light" aria-current="page" href="#">Login</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
 
         <div class="container d-flex flex-column justify-content-center align-items-center" style="padding-top: 10rem;">
             <div class="card bg-glass">
                 <div class="card-body">
-                    @if (session('error'))
-                    <div class="alert alert-danger">
-                        {{ session('error') }}
-                    </div>
-                    @endif
-                    <form class="form" method="POST" action="{{ route('actionLogin') }}">
+                    <form class="form" method="POST" action="{{ route('actionForget') }}">
                         @csrf
                         <div>
-                            <h4 class="mb-3 text-center fw-bold" style="color: #042F66">LOGIN</h4>
+                            <h4 class="mb-3 text-center fw-bold" style="color: #042F66">FORGOT PASS</h4>
                         </div>
-                        <div class="form-floating mb-2">
-                            <input type="text" class="form-control" id="floatingInput" name="nis" placeholder="No Induk Siswa" required />
-                            <label for="floatingInput">Nomor Induk Siswa</label>
+                        <div>
+                            <h6 class="mb-3 text-center fw-bold" style="color: #042F66">Masukkan Password baru</h6>
                         </div>
                         <!-- Password -->
                         <div class="form-floating">
                             <input type="password" class="form-control mb-2" id="floatingPassword" name="password" placeholder="Password" required />
                             <label for="floatingPassword">Password</label>
                         </div>
-                        <!-- Forgot Password -->
-                        <div class="text-end fs-6">
-                            <a href="{{url('forgetPass')}}">Forgot Password</a>
-                        </div>
+
+                        <!-- <div class="form-floating">
+                            <input type="password" class="form-control mb-2" id="floatingPassword" name="password" placeholder="Password" required />
+                            <label for="floatingPassword">Password</label>
+                        </div> -->
                         <!-- Submit button -->
-                        <button type="submit" style="width: 25%;background-color:#042F66; border-color:#042F66" class="btn btn-primary btn-block mb-2 mt-4 d-grid col-6 mx-auto ">
-                            Login
+
+                        <button type="submit" id="ubahPasswordButton" style="width: 25%;background-color:#042F66; border-color:#042F66" class="btn btn-primary btn-block mb-2 mt-4 d-grid col-6 mx-auto " data-bs-target="#staticBackdrop" data-bs-toggle="modal" disabled>
+                            Ubah Password
                         </button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Konfirmasi</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Password akan diganti, pastikan anda mengingat password baru anda
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Gas!!!</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
     </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('ubahPasswordButton').disabled = true;
 
+            // Listen for changes in the password input
+            document.getElementById('floatingPassword').addEventListener('input', function() {
+                document.getElementById('ubahPasswordButton').disabled = this.value.trim() === '';
+            });
+        });
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
 </body>

@@ -19,6 +19,18 @@ class RegisterController extends Controller
 
     public function actionRegister(Request $request)
     {
+        $existingUser = User::where('nis', $request->nis)->first();
+        if ($existingUser) {
+            Session::flash('error', "NIS sudah terdaftar. gunakan NIS yang berbeda");
+            return redirect('register');
+        }
+
+        $existingEmail = User::where('email', $request->email)->first();
+        if ($existingEmail) {
+            Session::flash('error', "Email sudah terdaftar. gunakan Email yang berbeda");
+            return redirect('register');
+        }
+
         $str = Str::random(100);
         $user = User::create([
             'nis' => $request->nis,
@@ -40,10 +52,9 @@ class RegisterController extends Controller
             'datetime' => date('Y-m-d H:i:s'),
             'url' => request()->getHttpHost() . '/register/verify/' . $str,
         ];
-
         Mail::to($request->email)->send(new MailSend($details));
-        Session::flash('success', 'Silakan cek email anda untuk verifikasi akun');
-        return redirect('register');
+        Session::flash('message', 'Silakan cek email anda untuk verifikasi akun');
+        return redirect('/');
         // $registrationData = $request->all();
 
         // $validate = Validator::make($registrationData, [
