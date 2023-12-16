@@ -116,14 +116,14 @@
                     <ul class="navbar-nav pe-2">
                         <li class="nav-item">
                             <a class="nav-link nav-active active rounded mt-1 ms-0 text-light" aria-current="page"
-                                href="{{ url('/admin') }}">Login
+                                href="{{ route('admin') }}">Login
                                 as Admin</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/register') }}">Register</a>
+                            <a class="nav-link" href="{{ route('register') }}">Register</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/login') }}">Login</a>
+                            <a class="nav-link" href="{{ route('login') }}">Login</a>
                         </li>
                     </ul>
                 </div>
@@ -134,20 +134,25 @@
         <div class="container d-flex flex-column justify-content-center">
             <div class="card bg-glass">
                 <div class="card-body">
-                    <form class="form" action="{{ url('/admin-home') }}">
+                    @if (session('error'))
+                        <div class="alert alert-danger" role="alert">
+                            {{ session('error') }}
+                        </div>
+                    @endif
+                    <form class="form" method="POST" action="{{ route('loginAdmin') }}">
                         @csrf
                         <div>
                             <h4 class="mb-3 text-center fw-bold" style="color: #042F66">LOGIN</h4>
                         </div>
                         <div class="form-floating mb-2">
-                            <input type="text" class="form-control" id="floatingInput" placeholder="Nama Pegawai"
-                                required />
+                            <input type="text" class="form-control" id="floatingInput" name="no_pegawai"
+                                placeholder="Nama Pegawai" required />
                             <label for="floatingInput">No. Pegawai</label>
                         </div>
                         <!-- Password -->
                         <div class="form-floating">
-                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
-                                required />
+                            <input type="password" class="form-control" id="floatingPassword" name="password"
+                                placeholder="Password" required />
                             <label for="floatingPassword">Password</label>
                         </div>
                         <!-- Submit button -->

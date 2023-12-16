@@ -4,6 +4,13 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\JadwalController;
+use App\Http\Controllers\PembayaranController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\HomeAdminController;
+use App\Http\Controllers\AdminSPPController;
+use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\AdminKonfirmasiSPPController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,3 +35,16 @@ Route::get('logout', [LoginController::class, 'actionLogout'])->name('actionLogo
 
 Route::get('home', [HomeController::class, 'index'])->name('home')->middleware('auth');
 Route::get('profile', [ProfileController::class, 'index'])->name('profile')->middleware('auth');
+Route::get('jadwal', [JadwalController::class, 'index'])->name('jadwal')->middleware('auth');
+Route::get('pembayaran', [PembayaranController::class, 'index'])->name('pembayaran')->middleware('auth');
+
+// Admin
+Route::get('admin', [AdminController::class, 'index'])->name('admin');
+Route::post('loginAdmin', [AdminController::class, 'loginAdmin'])->name('loginAdmin');
+Route::get('admin-home', [HomeAdminController::class, 'index'])->name('admin-home')->middleware('auth:admin');
+
+Route::get('manage-user', [AdminUserController::class, 'index'])->name('manage-user')->middleware('auth:admin');
+Route::get('manage-spp', [AdminSPPController::class, 'index'])->name('manage-spp')->middleware('auth:admin');
+Route::post('manage-spp/addClass/{id}', [AdminSPPController::class, 'addClass'])->name('addClass')->middleware('auth:admin');
+
+Route::get('admin-konfirmasi-spp', [AdminKonfirmasiSPPController::class, 'index'])->name('admin-konfirmasi-spp')->middleware('auth:admin');

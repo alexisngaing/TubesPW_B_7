@@ -87,10 +87,10 @@
                         class="fas fa-house"></i><span style="margin-left: 10px">Home</span></a>
                 <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ route('profile') }}"><i
                         class="fas fa-user"></i><span style="margin-left: 14px">Profil</span></a>
-                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ url('jadwal') }}"><i
+                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ route('jadwal') }}"><i
                         class="fas fa-calendar-days"></i>
                     <span style="margin-left: 10px">Jadwal</span></a>
-                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ url('/pembayaran') }}"><i
+                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ route('pembayaran') }}"><i
                         class="fas fa-wallet"></i><span style="margin-left: 12px">Pembayaran
                         SPP</span></a>
                 <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ route('actionLogout') }}"><i

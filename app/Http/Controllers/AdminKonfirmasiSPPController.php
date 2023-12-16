@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class JadwalController extends Controller
+class AdminKonfirmasiSPPController extends Controller
 {
     public function index()
     {
-        return view('jadwal');
+        return view('admin-konfirmasi-spp');
     }
 }

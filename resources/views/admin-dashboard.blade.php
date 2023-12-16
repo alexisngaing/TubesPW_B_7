@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initialscale=1">
-    <title>GD5_B_11407</title>
+    <title>SHIS</title>
     <!-- Google Font: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -67,7 +67,6 @@
             }
         }
     </style>
-
 </head>
 
 <body>
@@ -82,14 +81,17 @@
                 </div>
             </div>
             <div class="list-group list-group-flush">
-                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ url('/admin-home') }}"><i
+                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ route('admin-home') }}"><i
                         class="fas fa-house"></i><span style="margin-left: 12px">Home</span></a>
-                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ url('/manage-user') }}"><i
+                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ route('manage-user') }}"><i
                         class="fas fa-users"></i><span style="margin-left: 10px">Manage User</span></a>
-                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ url('/manage-spp') }}"><i
+                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ route('manage-spp') }}"><i
                         class="fas fa-bars-progress"></i>
                     <span style="margin-left: 10px">Manage Data SPP</span></a>
-                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ url('/admin') }}"><i
+                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ route('admin-konfirmasi-spp') }}"><i
+                        class="fas fa-bars"></i>
+                    <span style="margin-left: 10px">Pembayaran SPP</span></a>
+                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ route('admin') }}"><i
                         class="fas fa-right-from-bracket"></i>
                     <span style="margin-left: 9px">Logout</span></a>
             </div>
