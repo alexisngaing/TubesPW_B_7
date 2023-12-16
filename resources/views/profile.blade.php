@@ -6,8 +6,8 @@
             <div class="d-flex top-profile rounded-2 mb-3 shadow-sm">
                 <img class="profile p-4" src="{{ asset('img/top-pfp.jpg') }}" alt="foto pas">
                 <div class="d-flex flex-column justify-content-center">
-                    <h3 class="fw-semibold">Putri</h3>
-                    <p class="mb-2">210711407</p>
+                    <h3 class="fw-semibold">{{ Auth::user()->nama }}</h3>
+                    <p class="mb-2">{{ Auth::user()->nis }}</p>
                     <p class="mb-2">12 MIPA 2</p>
                     <p class="mb-2">Status: Aktif</p>
                 </div>
@@ -15,20 +15,19 @@
             <div class="down-profile rounded-2 shadow-sm">
                 <div class="p-4">
                     <p>Nama Lengkap</p>
-                    <h6>Putri</h6>
+                    <h6>{{ Auth::user()->nama }}</h6>
                     <p>NIS</p>
-                    <h6>210711407</h6>
+                    <h6>{{ Auth::user()->nis }}</h6>
                     <p>Tempat, Tanggal Lahir</p>
-                    <h6>Bandung, 11 September 2002</h6>
+                    <h6>{{ Auth::user()->tanggal_lahir }}</h6>
                     <p>Agama</p>
-                    <h6>Atheis</h6>
+                    <h6>{{ Auth::user()->agama }}</h6>
                     <p>Penjurusan</p>
-                    <h6>Matematika IPA (MIPA)</h6>
+                    <h6>{{ Auth::user()->penjurusan }}</h6>
                     <p>Asal Sekolah</p>
-                    <h6>SMP Negeri 2 Yogyakarta</h6>
+                    <h6>{{ Auth::user()->asal_sekolah }}</h6>
                     <p>Alamat</p>
-                    <h6>Jl. Dirgantara IV No.2, Janti, Caturtunggal, Kec. Depok, Kabupaten Sleman, Daerah Istimewa
-                        Yogyakarta 55281</h6>
+                    <h6>{{ Auth::user()->alamat }}</h6>
                 </div>
             </div>
         </div>

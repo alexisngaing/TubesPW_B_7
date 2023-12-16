@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,55 +17,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('login');
-});
+Route::get('/', [LoginController::class, 'login'])->name('login');
+Route::post('actionLogin', [LoginController::class, 'actionLogin'])->name('actionLogin');
 
+Route::get('register', [RegisterController::class, 'register'])->name('register');
+Route::post('register/action', [RegisterController::class, 'actionRegister'])->name('actionRegister');
+Route::get('register/verify/{verify_key}', [RegisterController::class, 'verify'])->name('verify');
 
-Route::get('/profile', function () {
-    return view('/profile');
-});
+Route::get('logout', [LoginController::class, 'actionLogout'])->name('actionLogout')->middleware('auth');
 
-Route::get('/jadwal', function () {
-    return view('jadwal');
-});
-
-Route::get('/pembayaran', function () {
-    return view('pembayaran');
-});
-
-Route::get('/login', function () {
-    return view('login');
-});
-
-Route::get('/login-copy', function () {
-    return view('login-copy');
-});
-
-Route::get('/register', function () {
-    return view('register');
-});
-
-Route::get('/admin', function () {
-    return view('admin');
-});
-
-Route::get('/admin-dashboard', function () {
-    return view('admin-dashboard');
-});
-
-Route::get('/admin-home', function () {
-    return view('admin-home');
-});
-
-Route::get('/manage-user', function () {
-    return view('manage-user');
-});
-
-Route::get('/manage-spp', function () {
-    return view('manage-spp');
-});
-
-Route::get('/home', function () {
-    return view('home');
-});
+Route::get('home', [HomeController::class, 'index'])->name('home')->middleware('auth');
+Route::get('profile', [ProfileController::class, 'index'])->name('profile')->middleware('auth');

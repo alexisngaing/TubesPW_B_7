@@ -126,7 +126,7 @@
                                 href="{{ url('/register') }}">Register</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/login') }}">Login</a>
+                            <a class="nav-link" href="{{ url('/') }}">Login</a>
                         </li>
                     </ul>
                 </div>
@@ -135,44 +135,50 @@
         <div class="container d-flex align-items-center" style="min-height: 60vh;">
             <div class="card bg-glass mt-5 mx-auto" style="width: 80%; max-width: 600px;">
                 <div class="card-body">
-                    <form class="form" action="{{ url('/login') }}">
+                    @if (session('message'))
+                        <div class="alert alert-success">
+                            {{ session('message') }}
+                        </div>
+                    @endif
+                    <form class="form" method="POST" action="{{ route('actionRegister') }}">
+                        @csrf
                         <div>
                             <h4 class="mb-3 text-center fw-bold" style="color: #042F66; font-weight: bold;">Registrasi
                             </h4>
                         </div>
 
                         <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Lengkap</label>
-                            <input type="text" class="form-control shadow-input" id="nama"
+                            <label class="form-label">Nama Lengkap</label>
+                            <input type="text" class="form-control shadow-input" name="nama"
                                 placeholder="Nama Lengkap" required>
                         </div>
                         <div class="mb-3">
-                            <label for="no" class="form-label">Nomor Induk Siswa</label>
-                            <input type="text" class="form-control shadow-input" id="no"
+                            <label class="form-label">Nomor Induk Siswa</label>
+                            <input type="text" class="form-control shadow-input" name="nis"
                                 placeholder="Nomor Induk Siswa" required>
                         </div>
                         <div class="mb-3">
-                            <label for="tgl" class="form-label">Tanggal Lahir</label>
-                            <input type="date" class="form-control shadow-input" id="tgl" required>
+                            <label class="form-label">Tanggal Lahir</label>
+                            <input type="text" class="form-control shadow-input" name="tanggal_lahir" required>
                         </div>
-                        <div class="mb-3">
+                        {{-- <div class="mb-3">
                             <label for="tlpn" class="form-label">No Telepon</label>
-                            <input type="number" class="form-control shadow-input" id="tlpn"
+                            <input type="number" class="form-control shadow-input" name=""
                                 placeholder="Nomor Telepon" required>
-                        </div>
+                        </div> --}}
                         <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control shadow-input" id="email" placeholder="Email"
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control shadow-input" name="email" placeholder="Email"
                                 required>
                         </div>
                         <div class="mb-3">
-                            <label for="pass" class="form-label">Password</label>
-                            <input type="password" class="form-control shadow-input" id="pass" required>
+                            <label class="form-label">Password</label>
+                            <input type="password" class="form-control shadow-input" name="password" required>
                         </div>
-                        <div class="mb-3">
-                            <label for="confirmpass" class="form-label">Confirm Password</label>
+                        {{-- <div class="mb-3">
+                            <label class="form-label">Confirm Password</label>
                             <input type="password" class="form-control shadow-input" id="confirmpass" required>
-                        </div>
+                        </div> --}}
                         <div class="text-center">
                             <button type="login" class="btn btn-primary"
                                 style="background-color: #042F66; border-color: #042F66;">Login</button>

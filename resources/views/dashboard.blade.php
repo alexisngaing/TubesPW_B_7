@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initialscale=1">
-    <title>GD5_B_11407</title>
+    <title>SMIS</title>
     <!-- Google Font: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -77,23 +77,23 @@
             <div class="d-flex sidebar-heading border-bottom gap-3 p-4" style="background-color: #042F66">
                 <img src="{{ asset('img/pfp.jpg') }}" alt="logo" class="img-fluid rounded-4" style="width: 4rem">
                 <div class="text-white fw-bold d-flex flex-column justify-content-center align-items-start">
-                    <p class="mb-0" style="font-size: 16px">Student Name</p>
+                    <p class="mb-0" style="font-size: 16px">{{ Auth::user()->nama }}</p>
                     <p class="mb-0" style="font-size: 12px">12 MIPA 2</p>
                 </div>
 
             </div>
             <div class="list-group list-group-flush">
-                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ url('/home') }}"><i
+                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ route('home') }}"><i
                         class="fas fa-house"></i><span style="margin-left: 10px">Home</span></a>
-                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ url('/profile') }}"><i
+                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ route('profile') }}"><i
                         class="fas fa-user"></i><span style="margin-left: 14px">Profil</span></a>
-                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ url('/jadwal') }}"><i
+                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ url('jadwal') }}"><i
                         class="fas fa-calendar-days"></i>
                     <span style="margin-left: 10px">Jadwal</span></a>
                 <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ url('/pembayaran') }}"><i
                         class="fas fa-wallet"></i><span style="margin-left: 12px">Pembayaran
                         SPP</span></a>
-                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ url('/login') }}"><i
+                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ route('actionLogout') }}"><i
                         class="fas fa-right-from-bracket"></i>
                     <span style="margin-left: 8px">Logout</span></a>
             </div>

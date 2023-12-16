@@ -30,4 +30,10 @@
             </div>
         </div>
     </div>
+
+    <script>
+        window.onload = function() {
+            window.history.pushState({}, '', '/');
+        }
+    </script>
 @endsection
