@@ -45,7 +45,7 @@ Route::get('/forgetPass', function () {
     return view('forgetPass');
 });
 
-Route::post('actionForget', [LoginController::class, 'actionForget'])->name('actionForget');
+Route::post('actionForget', [ProfileController::class, 'actionForget'])->name('actionForget'); 
 Route::get('jadwal', [JadwalController::class, 'index'])->name('jadwal')->middleware('auth');
 Route::get('pembayaran/{nis}', [PembayaranController::class, 'index'])->name('pembayaran')->middleware('auth');
 

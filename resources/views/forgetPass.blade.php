@@ -130,25 +130,27 @@
                         <button type="submit" id="ubahPasswordButton" style="width: 25%;background-color:#042F66; border-color:#042F66" class="btn btn-primary btn-block mb-2 mt-4 d-grid col-6 mx-auto " data-bs-target="#staticBackdrop" data-bs-toggle="modal" disabled>
                             Ubah Password
                         </button>
-                        <!-- Modal -->
-                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Konfirmasi</h1>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        Password akan diganti, pastikan anda mengingat password baru anda
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Gas!!!</button>
-                                    </div>
+
+                    </form>
+                    <!-- Modal -->
+                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header bg-success">
+                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Konfirmasi</h1>
+                                    <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
                                 </div>
+                                <div class="modal-body">
+                                    Password telah diganti cuy
+                                    <!-- Password akan diganti, pastikan anda mengingat password baru anda -->
+                                </div>
+                                <!-- <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Gas!!!</button>
+                                </div> -->
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
