@@ -17,7 +17,7 @@ class AdminSPPController extends Controller
         return view('manage-spp', compact('spp', 'kelas'));
     }
 
-    public function addClass(Request $request, $id)
+    public function addToSpesificKelas(Request $request, $id)
     {
         $spp = SPP::find($id);
         if (!$spp) {
@@ -25,8 +25,17 @@ class AdminSPPController extends Controller
         }
 
         $data = $request->all();
-        $user = User::Where('id_kelas', $data['id_kelas'])->get()->load('kelas');
-        return $user;
+        $users = User::Where('id_kelas', $data['id_kelas'])->get();
+
+        foreach ($users as $user) {
+            $payment = new PembayaranSPP();
+            $payment->nis_siswa = $user->nis;
+            $payment->kode_pembayaran_spp = $spp->kode_pembayaran;
+            $payment->tanggal_pembayaran = date('Y-m-d');
+            $payment->denda = 0;
+            $payment->save();
+        }
+        // return $user;
         return redirect()->route('admin-konfirmasi-spp');
     }
 }

@@ -36,7 +36,7 @@ Route::get('logout', [LoginController::class, 'actionLogout'])->name('actionLogo
 Route::get('home', [HomeController::class, 'index'])->name('home')->middleware('auth');
 Route::get('profile', [ProfileController::class, 'index'])->name('profile')->middleware('auth');
 Route::get('jadwal', [JadwalController::class, 'index'])->name('jadwal')->middleware('auth');
-Route::get('pembayaran', [PembayaranController::class, 'index'])->name('pembayaran')->middleware('auth');
+Route::get('pembayaran/{nis}', [PembayaranController::class, 'index'])->name('pembayaran')->middleware('auth');
 
 // Admin
 Route::get('admin', [AdminController::class, 'index'])->name('admin');
@@ -45,6 +45,6 @@ Route::get('admin-home', [HomeAdminController::class, 'index'])->name('admin-hom
 
 Route::get('manage-user', [AdminUserController::class, 'index'])->name('manage-user')->middleware('auth:admin');
 Route::get('manage-spp', [AdminSPPController::class, 'index'])->name('manage-spp')->middleware('auth:admin');
-Route::post('manage-spp/addClass/{id}', [AdminSPPController::class, 'addClass'])->name('addClass')->middleware('auth:admin');
+Route::post('manage-spp/addToSpesificKelas/{id}', [AdminSPPController::class, 'addToSpesificKelas'])->name('addToSpesificKelas')->middleware('auth:admin');
 
 Route::get('admin-konfirmasi-spp', [AdminKonfirmasiSPPController::class, 'index'])->name('admin-konfirmasi-spp')->middleware('auth:admin');

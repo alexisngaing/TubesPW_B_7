@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
-class SPP extends Model
+class PembayaranSPP extends Model
 {
     use HasFactory, HasFactory, Notifiable;
 

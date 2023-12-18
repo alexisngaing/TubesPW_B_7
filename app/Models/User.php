@@ -60,4 +60,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Kelas::class, 'id', 'id_kelas');
     }
+
+    public function pembayaranSPP()
+    {
+        return $this->hasMany(PembayaranSPP::class, 'nis', 'nis_siswa');
+    }
 }

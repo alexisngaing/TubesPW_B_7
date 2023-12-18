@@ -76,8 +76,8 @@
             <div class="d-flex sidebar-heading border-bottom gap-3 p-4" style="background-color: #042F66">
                 <img src="{{ asset('img/admin.jpg') }}" alt="logo" class="img-fluid rounded-4" style="width: 4rem">
                 <div class="text-white fw-bold d-flex flex-column justify-content-center align-items-start">
-                    <p class="mb-0" style="font-size: 16px">Admin1</p>
-                    <p class="mb-0" style="font-size: 12px">123.123</p>
+                    <p class="mb-0" style="font-size: 16px">{{ Auth::user()->nama }}</p>
+                    <p class="mb-0" style="font-size: 12px">{{ Auth::user()->no_pegawai }}</p>
                 </div>
             </div>
             <div class="list-group list-group-flush">

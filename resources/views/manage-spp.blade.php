@@ -202,6 +202,7 @@
                                         <th class="text-center">Tanggal Berakhir</th>
                                         <th class="text-center">Biaya</th>
                                         <th class="text-center">Status</th>
+                                        <th class="text-center">Input</th>
                                     </tr>
                                 </thead>
                                 <tbody class="fw-medium">
@@ -213,23 +214,6 @@
                                                         class="fas fa-edit"></i></a>
                                                 <a href="#" class="btn btn-success btn-sm"><i
                                                         class="fas fa-trash"></i></a>
-                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                                    data-bs-target="#exampleModal2">
-                                                    <i class="fas fa-add"></i>
-                                                </button>
-                                                <form method="POST"
-                                                    action="{{ route('addClass', $item['kode_pembayaran']) }}">
-                                                    @csrf
-                                                    <select name="id_kelas" id="entries"
-                                                        class="form-select form-select-sm"
-                                                        style="width: 70px; height: 30px;">
-                                                        @foreach ($kelas as $k)
-                                                            <option value="{{ $k['id'] }}">{{ $k['nama_kelas'] }}
-                                                            </option>
-                                                        @endforeach
-                                                    </select>
-                                                    <button type="submit">add</button>
-                                                </form>
                                             </td>
                                             <td class="text-center">{{ $item['kode_pembayaran'] }}</td>
                                             <td class="text-center">{{ $item['tahun_pembayaran'] }}</td>
@@ -238,6 +222,26 @@
                                             <td class="text-center">{{ $item['tanggal_berakhir'] }}</td>
                                             <td class="text-center">{{ $item['biaya'] }}</td>
                                             <td class="text-center">{{ $item['status'] }}</td>
+                                            <td class="text-center">
+                                                <form method="POST"
+                                                    action="{{ route('addToSpesificKelas', $item['kode_pembayaran']) }}">
+                                                    @csrf
+                                                    <div class="d-flex gap-2">
+
+
+                                                        <select name="id_kelas" id="entries"
+                                                            class="form-select form-select-sm"
+                                                            style="width: 70px; height: 30px;">
+                                                            @foreach ($kelas as $k)
+                                                                <option value="{{ $k['id'] }}">{{ $k['nama_kelas'] }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                        <button type="submit" class="btn btn-primary btn-sm"><i
+                                                                class="fas fa-add"></i></button>
+                                                    </div>
+                                                </form>
+                                            </td>
                                         </tr>
                                     @empty
                                         <tr>
