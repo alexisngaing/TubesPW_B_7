@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\hash;
 
 class LoginController extends Controller
 {
@@ -69,5 +70,15 @@ class LoginController extends Controller
     {
         Auth::logout();
         return redirect('/');
+    }
+
+    public function actionForget(Request $request)
+    {
+        $user = Auth::user();
+        $user->update([
+            'password' => Hash::make($request->input('password')),
+        ]);
+        // Redirect to the profile page or another appropriate page
+        return redirect()->route('profile');
     }
 }

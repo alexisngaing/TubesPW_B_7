@@ -84,7 +84,7 @@
             <div class="list-group list-group-flush">
                 <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ route('home') }}"><i
                         class="fas fa-house"></i><span style="margin-left: 10px">Home</span></a>
-                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ route('profile') }}"><i
+                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ route('profile.index') }}"><i
                         class="fas fa-user"></i><span style="margin-left: 14px">Profil</span></a>
                 <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ route('jadwal') }}"><i
                         class="fas fa-calendar-days"></i>

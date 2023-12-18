@@ -35,6 +35,17 @@ Route::get('logout', [LoginController::class, 'actionLogout'])->name('actionLogo
 
 Route::get('home', [HomeController::class, 'index'])->name('home')->middleware('auth');
 Route::get('profile', [ProfileController::class, 'index'])->name('profile')->middleware('auth');
+
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index')->middleware('auth');
+Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit')->middleware('auth');
+Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update')->middleware('auth');
+
+
+Route::get('/forgetPass', function () {
+    return view('forgetPass');
+});
+
+Route::post('actionForget', [LoginController::class, 'actionForget'])->name('actionForget');
 Route::get('jadwal', [JadwalController::class, 'index'])->name('jadwal')->middleware('auth');
 Route::get('pembayaran/{nis}', [PembayaranController::class, 'index'])->name('pembayaran')->middleware('auth');
 
