@@ -81,6 +81,58 @@
         }
     </style>
     <div class="container-details">
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Data SPP</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="">
+                            <label for="">Kode Pembayaran</label>
+                            <input type="text">
+                            <label for="">Tanggal Pembayaran</label>
+                            <input type="text">
+                            <label for="">Semester</label>
+                            <input type="text">
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal 2 -->
+        <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Data SPP</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        {{-- <form method="POST" action="{{ route('addClass', $item['kode_pembayaran']) }}">
+                            <select name="id_kelas" id="entries" class="form-select form-select-sm"
+                                style="width: 70px; height: 30px;">
+                                @foreach ($kelas as $k)
+                                    <option value="{{ $k['id'] }}">{{ $k['nama_kelas'] }}</option>
+                                @endforeach
+                            </select>
+                        </form> --}}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="container-fluid" style="padding: 10px;">
             <div class="card" style=" margin-top: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);">
                 <div class="card-body" style="height: 100vh;">
@@ -89,7 +141,10 @@
                     </div>
                     <div class="data-control-show">
                         <div class="data-control-show-button gap-2">
-                            <button class="btn btn-success rounded-1"><i class="fas fa-circle-plus"></i> Tambah</button>
+                            <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">
+                                <i class="fas fa-circle-plus"></i> Tambah
+                            </button>
                             <button class="btn btn-primary rounded-1"><i class="fas fa-file-lines"></i> Laporan</button>
                         </div>
                         <div class="data-control-show-select gap-2">
@@ -140,81 +195,59 @@
                                     <tr>
                                         <th class="text-center">No</th>
                                         <th class="text-center">Aksi</th>
-                                        <th class="text-center">Nama</th>
+                                        <th class="text-center">Kode Pembayaran</th>
                                         <th class="text-center">Tanggal Pembayaran</th>
-                                        <th class="text-center">Nominal Pembayaran</th>
-                                        <th class="text-center">Tahun Ajaran</th>
-                                        <th class="text-center">Bulan</th>
+                                        <th class="text-center">Semester</th>
+                                        <th class="text-center">Tanggal Mulai</th>
+                                        <th class="text-center">Tanggal Berakhir</th>
+                                        <th class="text-center">Biaya</th>
+                                        <th class="text-center">Status</th>
+                                        <th class="text-center">Input</th>
                                     </tr>
                                 </thead>
                                 <tbody class="fw-medium">
-                                    <tr>
-                                        <td class="text-center">1</td>
-                                        <td class="text-center">
-                                            <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-edit"></i></a>
-                                            <a href="#" class="btn btn-success btn-sm"><i
-                                                    class="fas fa-trash"></i></a>
-                                        </td>
-                                        <td class="text-center">Alexis</td>
-                                        <td class="text-center">29 Januari 2023</td>
-                                        <td class="text-center">Rp 600.000</td>
-                                        <td class="text-center">2023/2024</td>
-                                        <td class="text-center">Februari</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center">2</td>
-                                        <td class="text-center">
-                                            <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-edit"></i></a>
-                                            <a href="#" class="btn btn-success btn-sm"><i
-                                                    class="fas fa-trash"></i></a>
-                                        </td>
-                                        <td class="text-center">Alexis</td>
-                                        <td class="text-center">29 Januari 2023</td>
-                                        <td class="text-center">Rp 600.000</td>
-                                        <td class="text-center">2023/2024</td>
-                                        <td class="text-center">Februari</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center">3</td>
-                                        <td class="text-center">
-                                            <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-edit"></i></a>
-                                            <a href="#" class="btn btn-success btn-sm"><i
-                                                    class="fas fa-trash"></i></a>
-                                        </td>
-                                        <td class="text-center">Alexis</td>
-                                        <td class="text-center">29 Januari 2023</td>
-                                        <td class="text-center">Rp 600.000</td>
-                                        <td class="text-center">2023/2024</td>
-                                        <td class="text-center">Februari</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center">4</td>
-                                        <td class="text-center">
-                                            <a href="#" class="btn btn-danger btn-sm"><i
-                                                    class="fas fa-edit"></i></a>
-                                            <a href="#" class="btn btn-success btn-sm"><i
-                                                    class="fas fa-trash"></i></a>
-                                        </td>
-                                        <td class="text-center">Alexis</td>
-                                        <td class="text-center">29 Januari 2023</td>
-                                        <td class="text-center">Rp 600.000</td>
-                                        <td class="text-center">2023/2024</td>
-                                        <td class="text-center">Februari</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center">5</td>
-                                        <td class="text-center">
-                                            <a href="#" class="btn btn-danger btn-sm"><i
-                                                    class="fas fa-edit"></i></a>
-                                            <a href="#" class="btn btn-success btn-sm"><i
-                                                    class="fas fa-trash"></i></a>
-                                        </td>
-                                        <td class="text-center">Alexis</td>
-                                        <td class="text-center">29 Januari 2023</td>
-                                        <td class="text-center">Rp 600.000</td>
-                                        <td class="text-center">2023/2024</td>
-                                        <td class="text-center">Februari</td>
-                                    </tr>
+                                    @forelse ($spp as $item)
+                                        <tr>
+                                            <td class="text-center">1</td>
+                                            <td class="text-center">
+                                                <a href="#" class="btn btn-danger btn-sm"><i
+                                                        class="fas fa-edit"></i></a>
+                                                <a href="#" class="btn btn-success btn-sm"><i
+                                                        class="fas fa-trash"></i></a>
+                                            </td>
+                                            <td class="text-center">{{ $item['kode_pembayaran'] }}</td>
+                                            <td class="text-center">{{ $item['tahun_pembayaran'] }}</td>
+                                            <td class="text-center">{{ $item['semester'] }}</td>
+                                            <td class="text-center">{{ $item['tanggal_mulai'] }}</td>
+                                            <td class="text-center">{{ $item['tanggal_berakhir'] }}</td>
+                                            <td class="text-center">{{ $item['biaya'] }}</td>
+                                            <td class="text-center">{{ $item['status'] }}</td>
+                                            <td class="text-center">
+                                                <form method="POST"
+                                                    action="{{ route('addToSpesificKelas', $item['kode_pembayaran']) }}">
+                                                    @csrf
+                                                    <div class="d-flex gap-2">
+
+
+                                                        <select name="id_kelas" id="entries"
+                                                            class="form-select form-select-sm"
+                                                            style="width: 70px; height: 30px;">
+                                                            @foreach ($kelas as $k)
+                                                                <option value="{{ $k['id'] }}">{{ $k['nama_kelas'] }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                        <button type="submit" class="btn btn-primary btn-sm"><i
+                                                                class="fas fa-add"></i></button>
+                                                    </div>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @empty
+                                        <tr>
+                                            <td colspan="7" class="text-center">Tidak ada data</td>
+                                        </tr>
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>
@@ -222,6 +255,5 @@
                 </div>
             </div>
         </div>
-
     </div>
 @endsection

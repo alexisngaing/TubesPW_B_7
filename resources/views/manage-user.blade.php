@@ -135,146 +135,26 @@
                             </tr>
                         </thead>
                         <tbody class="fw-medium">
-                            <tr>
-                                <td class="text-center">1234</td>
-                                <td class="text-center">Alexis</td>
-                                <td class="text-center">14-Okt-2008</td>
-                                <td class="text-center">Islam</td>
-                                <td class="text-center">Jl. Budi Utomo Gang IV</td>
-                                <td class="text-center">4</td>
-                                <td class="text-center">MIPA</td>
-                                <td class="text-center">SMP Cahaya Kebenaran</td>
-                                <td class="text-center">
-                                    <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-edit"></i></a>
-                                    <a href="#" class="btn btn-success btn-sm"><i class="fas fa-trash"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">5028</td>
-                                <td class="text-center">Geby</td>
-                                <td class="text-center">02-Des-2007</td>
-                                <td class="text-center">Kristen</td>
-                                <td class="text-center">Jl. Budi Utomo Gang IV</td>
-                                <td class="text-center">6</td>
-                                <td class="text-center">MIPA</td>
-                                <td class="text-center">SMP Cahaya Kebenaran</td>
-                                <td class="text-center">
-                                    <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-edit"></i></a>
-                                    <a href="#" class="btn btn-success btn-sm"><i class="fas fa-trash"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">2245</td>
-                                <td class="text-center">William</td>
-                                <td class="text-center">02-Jul-2007</td>
-                                <td class="text-center">Katolik</td>
-                                <td class="text-center">Jl. Budi Utomo Gang IV</td>
-                                <td class="text-center">6</td>
-                                <td class="text-center">MIPA</td>
-                                <td class="text-center">SMP Cahaya Kebenaran</td>
-                                <td class="text-center">
-                                    <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-edit"></i></a>
-                                    <a href="#" class="btn btn-success btn-sm"><i class="fas fa-trash"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">1587</td>
-                                <td class="text-center">Budi</td>
-                                <td class="text-center">24-Jan-2008</td>
-                                <td class="text-center">Buddha</td>
-                                <td class="text-center">Jl. Budi Utomo Gang IV</td>
-                                <td class="text-center">4</td>
-                                <td class="text-center">Bahasa</td>
-                                <td class="text-center">SMP Cahaya Kebenaran</td>
-                                <td class="text-center">
-                                    <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-edit"></i></a>
-                                    <a href="#" class="btn btn-success btn-sm"><i class="fas fa-trash"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">9678</td>
-                                <td class="text-center">Michael</td>
-                                <td class="text-center">01-Jan-2007</td>
-                                <td class="text-center">Konghucu</td>
-                                <td class="text-center">Jl. Budi Utomo Gang IV</td>
-                                <td class="text-center">6</td>
-                                <td class="text-center">IPS</td>
-                                <td class="text-center">SMP Cahaya Kebenaran</td>
-                                <td class="text-center">
-                                    <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-edit"></i></a>
-                                    <a href="#" class="btn btn-success btn-sm"><i class="fas fa-trash"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">9678</td>
-                                <td class="text-center">Michael</td>
-                                <td class="text-center">01-Jan-2007</td>
-                                <td class="text-center">Konghucu</td>
-                                <td class="text-center">Jl. Budi Utomo Gang IV</td>
-                                <td class="text-center">6</td>
-                                <td class="text-center">IPS</td>
-                                <td class="text-center">SMP Cahaya Kebenaran</td>
-                                <td class="text-center">
-                                    <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-edit"></i></a>
-                                    <a href="#" class="btn btn-success btn-sm"><i class="fas fa-trash"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">9678</td>
-                                <td class="text-center">Michael</td>
-                                <td class="text-center">01-Jan-2007</td>
-                                <td class="text-center">Konghucu</td>
-                                <td class="text-center">Jl. Budi Utomo Gang IV</td>
-                                <td class="text-center">6</td>
-                                <td class="text-center">IPS</td>
-                                <td class="text-center">SMP Cahaya Kebenaran</td>
-                                <td class="text-center">
-                                    <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-edit"></i></a>
-                                    <a href="#" class="btn btn-success btn-sm"><i class="fas fa-trash"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">9678</td>
-                                <td class="text-center">Michael</td>
-                                <td class="text-center">01-Jan-2007</td>
-                                <td class="text-center">Konghucu</td>
-                                <td class="text-center">Jl. Budi Utomo Gang IV</td>
-                                <td class="text-center">6</td>
-                                <td class="text-center">IPS</td>
-                                <td class="text-center">SMP Cahaya Kebenaran</td>
-                                <td class="text-center">
-                                    <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-edit"></i></a>
-                                    <a href="#" class="btn btn-success btn-sm"><i class="fas fa-trash"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">9678</td>
-                                <td class="text-center">Michael</td>
-                                <td class="text-center">01-Jan-2007</td>
-                                <td class="text-center">Konghucu</td>
-                                <td class="text-center">Jl. Budi Utomo Gang IV</td>
-                                <td class="text-center">6</td>
-                                <td class="text-center">IPS</td>
-                                <td class="text-center">SMP Cahaya Kebenaran</td>
-                                <td class="text-center">
-                                    <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-edit"></i></a>
-                                    <a href="#" class="btn btn-success btn-sm"><i class="fas fa-trash"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">9678</td>
-                                <td class="text-center">Michael</td>
-                                <td class="text-center">01-Jan-2007</td>
-                                <td class="text-center">Konghucu</td>
-                                <td class="text-center">Jl. Budi Utomo Gang IV</td>
-                                <td class="text-center">6</td>
-                                <td class="text-center">IPS</td>
-                                <td class="text-center">SMP Cahaya Kebenaran</td>
-                                <td class="text-center">
-                                    <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-edit"></i></a>
-                                    <a href="#" class="btn btn-success btn-sm"><i class="fas fa-trash"></i></a>
-                                </td>
-                            </tr>
+                            @forelse ($siswa as $s)
+                                <tr>
+                                    <td class="text-center">{{ $s['nis'] }}</td>
+                                    <td class="text-center">{{ $s['nama'] }}</td>
+                                    <td class="text-center">{{ $s['tanggal_lahir'] }}</td>
+                                    <td class="text-center">{{ $s['agama'] }}</td>
+                                    <td class="text-center">{{ $s['alamat'] }}</td>
+                                    <td class="text-center">4</td>
+                                    <td class="text-center">MIPA</td>
+                                    <td class="text-center">SMP Cahaya Kebenaran</td>
+                                    <td class="text-center">
+                                        <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-edit"></i></a>
+                                        <a href="#" class="btn btn-success btn-sm"><i class="fas fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="9" class="text-center">Tidak ada data</td>
+                                </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>
