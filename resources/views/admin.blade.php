@@ -31,6 +31,7 @@
         .card {
             background-color: rgba(255, 255, 255, 0.8);
             width: 80%;
+            max-width: 600px;
             margin: 0 auto;
         }
 
@@ -40,7 +41,7 @@
             top: 0;
             left: 0;
             width: 80%;
-            height: 200%;
+            height: 100vh;
             background: linear-gradient(to right, rgba(0, 0, 0, 0.7), transparent);
         }
 
@@ -65,8 +66,13 @@
             width: 4rem;
         }
 
+        .nav-active {
+            background-color: #F9A835;
+            padding: 3px 15px;
+        }
+
         /* Responsive */
-        @media screen and (max-width: 420px) {
+        @media screen and (max-width: 920px) {
             .school-name {
                 display: none;
             }
@@ -81,6 +87,12 @@
 
             .logo {
                 width: 3rem;
+            }
+
+            .nav-active {
+                background-color: #F9A835;
+                padding: 3px 15px;
+                width: 9rem;
             }
         }
     </style>
@@ -103,8 +115,8 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul class="navbar-nav pe-2">
                         <li class="nav-item">
-                            <a class="nav-link active rounded mt-1 ms-0 text-light" aria-current="page"
-                                style="background-color: #F9A835; padding: 3px 15px;" href="{{ url('/admin') }}">Login
+                            <a class="nav-link nav-active active rounded mt-1 ms-0 text-light" aria-current="page"
+                                href="{{ url('/admin') }}">Login
                                 as Admin</a>
                         </li>
                         <li class="nav-item">
@@ -118,14 +130,14 @@
             </div>
         </nav>
     </header>
-    <section class=" align-items-center h-100">
-        <div class="container d-flex flex-column justify-content-center" style="width: 600px;">
-            <div class="card bg-glass " style="margin-top: 250px;">
+    <section class=" align-items-center h-100" style="padding-top: 10rem;">
+        <div class="container d-flex flex-column justify-content-center">
+            <div class="card bg-glass">
                 <div class="card-body">
                     <form class="form" action="{{ url('/admin-home') }}">
                         @csrf
                         <div>
-                            <h4 class="mb-3 text-center" style="color: #042F66">LOGIN</h4>
+                            <h4 class="mb-3 text-center fw-bold" style="color: #042F66">LOGIN</h4>
                         </div>
                         <div class="form-floating mb-2">
                             <input type="text" class="form-control" id="floatingInput" placeholder="Nama Pegawai"

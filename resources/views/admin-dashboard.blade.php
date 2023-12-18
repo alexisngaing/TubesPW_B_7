@@ -74,16 +74,21 @@
             <div class="d-flex sidebar-heading border-bottom gap-3 p-4" style="background-color: #042F66">
                 <img src="{{ asset('img/admin.jpg') }}" alt="logo" class="img-fluid rounded-4" style="width: 4rem">
                 <div class="text-white fw-bold d-flex flex-column justify-content-center align-items-start">
-                    <p class="mb-0" style="font-size: 16px">Admin</p>
+                    <p class="mb-0" style="font-size: 16px">Admin1</p>
+                    <p class="mb-0" style="font-size: 12px">123.123</p>
                 </div>
             </div>
             <div class="list-group list-group-flush">
-                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ url('/admin-home') }}"><i class="fas fa-house"></i><span style="margin-left: 10px">Home</span></a>
-                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ url('/manage-user') }}"><i class="fas fa-users"></i><span style="margin-left: 14px">Manage User</span></a>
-                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ url('/manage-spp') }}"><i class="fas fa-bars-progress"></i>
+                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ url('/admin-home') }}"><i
+                        class="fas fa-house"></i><span style="margin-left: 12px">Home</span></a>
+                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ url('/manage-user') }}"><i
+                        class="fas fa-users"></i><span style="margin-left: 10px">Manage User</span></a>
+                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ url('/manage-spp') }}"><i
+                        class="fas fa-bars-progress"></i>
                     <span style="margin-left: 10px">Manage Data SPP</span></a>
-                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ url('/admin') }}"><i class="fas fa-right-from-bracket"></i>
-                    <span style="margin-left: 8px">Logout</span></a>
+                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ url('/admin') }}"><i
+                        class="fas fa-right-from-bracket"></i>
+                    <span style="margin-left: 9px">Logout</span></a>
             </div>
         </div>
         <!-- Page content wrapper-->

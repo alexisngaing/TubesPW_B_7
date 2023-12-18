@@ -6,8 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\hash;
-use App\Http\Controllers\ProfileController;
-
 
 class LoginController extends Controller
 {

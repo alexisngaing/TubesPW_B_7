@@ -1,20 +1,60 @@
 @extends('admin-dashboard')
 @section('content')
-<style>
-    td {
-        padding: .5rem;
-    }
-
-    .card-body {
-        height: 100vh;
-    }
-
-    /* Responsive */
-    @media screen and (max-width: 420px) {
-        .table-container {
-            overflow-x: auto;
-            max-height: 500px;
+    <style>
+        td {
+            padding: .5rem;
         }
+
+        th {
+            padding-left: 4px;
+            padding-right: 4px;
+        }
+
+        .card-body {
+            height: 100vh;
+        }
+
+        .data-control {
+            position: relative;
+            margin-bottom: 5rem;
+            margin-top: 3rem;
+            display: flex;
+        }
+
+        .data-control-entries {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .data-control-show {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        /* Responsive */
+
+        /* Tablet */
+        @media screen and (max-width: 920px) {
+            .card-body {
+                overflow-x: auto;
+            }
+
+            .card-body {
+                height: 100%;
+            }
+
+            .aksi {
+                padding-bottom: 2px;
+            }
+        }
+
+        /* Handphone */
+        @media screen and (max-width: 420px) {
+            .table-container {
+                overflow-x: auto;
+            }
 
         th,
         td {
@@ -26,22 +66,46 @@
             padding-right: 4px;
         }
 
-        .card-body {
-            height: 100%;
+            .card-body {
+                height: 100%;
+            }
+
+            .data-control {
+                position: 0;
+                margin-top: 3rem;
+                margin-bottom: 1rem;
+                display: block;
+            }
+
+            .data-control-entries {
+                position: relative;
+                top: 0;
+                left: 0;
+            }
+
+            .data-control-show {
+                position: relative;
+                top: 0;
+                right: 0;
+            }
+
+            .aksi {
+                padding-bottom: 2px;
+            }
         }
-    }
-</style>
-<div class="container-details">
-    <div class="" style="background-color: #F5F5F5; padding-top: 10px;">
+    </style>
+    <div class="container-details">
+        {{-- <div class="" style="padding-top: 10px;"> --}}
         <div class="card" style=" margin-top: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);">
             <div class="card-body">
                 <div class="card-title">
                     <h2>Data Siswa</h2>
                 </div>
-                <div class="position-relative mb-5">
-                    <div class="d-flex gap-1 fw-semibold position-absolute top-0 start-0">
+                <div class="data-control">
+                    <div class="d-flex gap-1 fw-semibold data-control-entries">
                         <p>Show</p>
-                        <select name="entries" id="entries" class="form-select form-select-sm" style="width: 70px; height: 30px;">
+                        <select name="entries" id="entries" class="form-select form-select-sm"
+                            style="width: 70px; height: 30px;">
                             <option value="10">10</option>
                             <option value="25">25</option>
                             <option value="50">50</option>
@@ -49,7 +113,7 @@
                         </select>
                         <p>entries</p>
                     </div>
-                    <div class="position-absolute top-0 end-0">
+                    <div class="data-control-show">
                         <form class="content-end" role="search">
                             <input class="form-control me-2" type="search" placeholder="Cari" aria-label="Search">
                         </form>
@@ -216,7 +280,6 @@
                 </div>
             </div>
         </div>
+        {{-- </div> --}}
     </div>
-
-</div>
 @endsection
