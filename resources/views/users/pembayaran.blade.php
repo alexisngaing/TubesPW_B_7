@@ -1,4 +1,4 @@
-@extends('dashboard')
+@extends('users/dashboard')
 @section('content')
     <style>
         td,
@@ -84,17 +84,22 @@
                                 <th class="text-center" style="width: 170px;">Jumlah Kekurangan</th>
                                 <th class="text-center" style="width: 100px;">Tanggal Mulai</th>
                                 <th class="text-center" style="width: 100px;">Tanggal Berakhir</th>
+                                <th class="text-center">Konfirmasi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse ($history as $item)
+                            @forelse ($tagihan as $item)
                                 <tr>
                                     <td class="text-center">{{ $item['kode_pembayaran_spp'] }}</td>
                                     <td class="text-center">{{ $item['spp']['semester'] }}</td>
-                                    <td class="text-center">Belum Lunas</td>
+                                    <td class="text-center">{{ $item['status'] ?? 'Belum Dibayar' }}</td>
                                     <td class="text-center">{{ $item['spp']['biaya'] }}</td>
                                     <td class="text-center">{{ $item['spp']['tanggal_mulai'] }}</td>
                                     <td class="text-center">{{ $item['spp']['tanggal_berakhir'] }}</td>
+                                    <td class="text-center">
+                                        <a href="{{ route('ajukanKonfirmasi', ['kode_riwayat_pembayaran' => $item]) }}"
+                                            class="btn btn-primary"><i class="fas fa-check"></i></a>
+                                    </td>
                                 </tr>
                             @empty
                                 <tr>
@@ -113,48 +118,29 @@
                     <table class="table-bordered" style="width: 100%; margin-top: 20px;">
                         <thead style="background-color: #042F66; color: white; height: 50px;">
                             <tr>
-                                <th class="text-center" style="width: 100px;">Tanggal Pembayaran</th>
-                                <th class="text-center" style="width: 100px;">Bank</th>
-                                <th class="text-center" style="width: 200px;">Jenis Tagihan</th>
-                                <th class="text-center" style="width: 150px;">Jumlah Bayar</th>
-                                <th class="text-center" style="width: 100px;">Denda</th>
+                                <th class="text-center">Tanggal Pembayaran</th>
+                                <th class="text-center">Bank</th>
+                                <th class="text-center">Jenis Tagihan</th>
+                                <th class="text-center">Jumlah Bayar</th>
+                                <th class="text-center">Denda</th>
+                                <th class="text-center">Status</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td class="text-center">08-okt-2023</td>
-                                <td class="text-center">BCA</td>
-                                <td class="text-center">SPP Bulan Oktober Semester Gasal TA 2023/2024</td>
-                                <td class="text-center">Rp.300.000,00</td>
-                                <td class="text-center">Rp.0,00</td>
-                            </tr>
-                        </tbody>
-                        <tbody>
-                            <tr>
-                                <td class="text-center">08-sep-2023</td>
-                                <td class="text-center">BCA</td>
-                                <td class="text-center">SPP Bulan September Semester Gasal TA 2023/2024</td>
-                                <td class="text-center">Rp.300.000,00</td>
-                                <td class="text-center">Rp.0,00</td>
-                            </tr>
-                        </tbody>
-                        <tbody>
-                            <tr>
-                                <td class="text-center">08-Agu-2023</td>
-                                <td class="text-center">BCA</td>
-                                <td class="text-center">SPP Bulan Agustus Semester Gasal TA 2023/2024</td>
-                                <td class="text-center">Rp.300.000,00</td>
-                                <td class="text-center">Rp.0,00</td>
-                            </tr>
-                        </tbody>
-                        <tbody>
-                            <tr>
-                                <td class="text-center">08-Jul-2023</td>
-                                <td class="text-center">BCA</td>
-                                <td class="text-center">SPP Bulan Juli Semester Gasal TA 2023/2024</td>
-                                <td class="text-center">Rp.300.000,00</td>
-                                <td class="text-center">Rp.0,00</td>
-                            </tr>
+                            @forelse ($history as $item)
+                                <tr>
+                                    <td class="text-center">{{ $item['tanggal_bayaran'] }}</td>
+                                    <td class="text-center">BCA</td>
+                                    <td class="text-center">SPP Semester {{ $item['spp']['semester'] }}</td>
+                                    <td class="text-center">{{ $item['spp']['biaya'] }}</td>
+                                    <td class="text-center">{{ $item['denda'] }}</td>
+                                    <td class="text-center">{{ $item['status'] }}</td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="6" class="text-center">Tidak Ada Riwayat</td>
+                                </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>

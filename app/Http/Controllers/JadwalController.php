@@ -10,6 +10,7 @@ class JadwalController extends Controller
     public function index($id_kelas = null)
     {
         $jadwal = Jadwal::where('id_kelas', $id_kelas)->get()->load('mapel', 'guru', 'kelas');
-        return view('jadwal', compact('jadwal'));
+        return view('users/jadwal', compact('jadwal'));
     }
+    
 }

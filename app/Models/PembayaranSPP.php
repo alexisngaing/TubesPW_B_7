@@ -19,6 +19,7 @@ class PembayaranSPP extends Model
         'kode_pembayaran_spp',
         'tanggal_bayaran',
         'denda',
+        'status',
     ];
 
     public function user()

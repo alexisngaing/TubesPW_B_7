@@ -49,6 +49,7 @@ Route::get('/forgetPass', function () {
 Route::post('actionForget', [ProfileController::class, 'actionForget'])->name('actionForget');
 Route::get('jadwal', [JadwalController::class, 'index'])->name('jadwal')->middleware('auth');
 Route::get('pembayaran/{nis}', [PembayaranController::class, 'index'])->name('pembayaran')->middleware('auth');
+Route::get('pembayaran/ajukanKonfirmasi/{kode_riwayat_pembayaran}', [PembayaranController::class, 'ajukanKonfirmasi'])->name('ajukanKonfirmasi')->middleware('auth');
 
 Route::get('jadwal/{id_kelas}', [JadwalController::class, 'index'])->name('jadwal')->middleware('auth');
 // Route::get('jadwal', [JadwalController::class, 'index'])->name('jadwal')->middleware('auth');
@@ -62,11 +63,13 @@ Route::get('manage-spp', [AdminSPPController::class, 'index'])->name('manage-spp
 Route::post('manage-spp/store', [AdminSPPController::class, 'store'])->name('store')->middleware('auth:admin');
 Route::post('manage-spp/addToSpesificKelas/{id}', [AdminSPPController::class, 'addToSpesificKelas'])->name('addToSpesificKelas')->middleware('auth:admin');
 
-Route::get('admin-konfirmasi-spp', [AdminKonfirmasiSPPController::class, 'index'])->name('admin-konfirmasi-spp')->middleware('auth:admin');
+Route::get('manage-pembayaran-spp', [AdminKonfirmasiSPPController::class, 'index'])->name('manage-pembayaran-spp')->middleware('auth:admin');
+Route::get('manage-pembayaran-spp', [AdminKonfirmasiSPPController::class, 'index'])->name('getAllPayment')->middleware('auth:admin');
+Route::get('manage-pembayaran-spp/konfirmasiPembayaran/{kode_riwayat_pembayaran}', [AdminKonfirmasiSPPController::class, 'konfirmasiPembayaran'])->name('konfirmasiPembayaran')->middleware('auth:admin');
 
 Route::get('manage-jadwal', [AdminJadwalController::class, 'index'])->name('manage-jadwal')->middleware('auth:admin');
 Route::post('manage-jadwal/store', [AdminJadwalController::class, 'store'])->name('store-jadwal')->middleware('auth:admin');
-Route::post('manage-jadwal/addToSpesificKelas/{id}', [AdminJadwalController::class, 'addToSpesificKelas'])->name('addToSpesificKelas')->middleware('auth:admin');
+// Route::post('manage-jadwal/addToSpesificKelas/{id}', [AdminJadwalController::class, 'addToSpesificKelas'])->name('addToSpesificKelas')->middleware('auth:admin');
 Route::get('manage-jadwal/edit/{id_jadwal}', [AdminJadwalController::class, 'edit'])->name('edit-jadwal')->middleware('auth:admin');
 Route::put('manage-jadwal/update/{id_jadwal}', [AdminJadwalController::class, 'update'])->name('update-jadwal')->middleware('auth:admin');
 Route::delete('manage-jadwal/{id_jadwal}', [AdminJadwalController::class, 'destroy'])->name('delete-jadwal')->middleware('auth:admin');
@@ -75,3 +78,5 @@ Route::delete('manage-jadwal/{id_jadwal}', [AdminJadwalController::class, 'destr
 Route::put('/admin/update/{nis}', [AdminUserController::class, 'update'])->name('admin.update')->middleware('auth:admin');
 Route::delete('/admin/delete/{nis}', [AdminUserController::class, 'destroy'])->name('admin.delete')->middleware('auth:admin');
 
+Route::put('/manage-spp/update/{kode_pembayaran}', [AdminSppController::class, 'update'])->name('adminSpp.update')->middleware('auth:admin');
+Route::delete('/manage-spp/destroy/{kode_pembayaran}', [AdminSppController::class, 'destroy'])->name('adminSpp.delete')->middleware('auth:admin');

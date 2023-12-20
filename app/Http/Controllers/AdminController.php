@@ -10,7 +10,7 @@ class AdminController extends Controller
 {
     public function index()
     {
-        return view('admin');
+        return view('admin/admin');
     }
 
     public function loginAdmin(Request $request)
