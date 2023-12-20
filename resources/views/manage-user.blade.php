@@ -138,8 +138,8 @@
                                     <td class="text-center">{{ $s['agama'] }}</td>
                                     <td class="text-center">{{ $s['alamat'] }}</td>
                                     <td class="text-center">4</td>
-                                    <td class="text-center">MIPA</td>
-                                    <td class="text-center">SMP Cahaya Kebenaran</td>
+                                    <td class="text-center">{{ $s['penjurusan'] }}</td>
+                                    <td class="text-center">{{ $s['asal_sekolah'] }}</td>
                                     <td class="text-center">
                                         <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-edit"></i></a>
                                         <a href="#" class="btn btn-success btn-sm"><i class="fas fa-trash"></i></a>

@@ -91,6 +91,9 @@
                 <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ route('admin-konfirmasi-spp') }}"><i
                         class="fas fa-bars"></i>
                     <span style="margin-left: 10px">Pembayaran SPP</span></a>
+                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ route('manage-jadwal') }}"><i
+                        class="fas fa-calendar"></i>
+                    <span style="margin-left: 9px">Manage Jadwal</span></a>
                 <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ route('admin') }}"><i
                         class="fas fa-right-from-bracket"></i>
                     <span style="margin-left: 9px">Logout</span></a>
