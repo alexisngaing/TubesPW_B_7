@@ -46,7 +46,7 @@ Route::get('/forgetPass', function () {
     return view('forgetPass');
 });
 
-Route::post('actionForget', [LoginController::class, 'actionForget'])->name('actionForget');
+Route::post('actionForget', [ProfileController::class, 'actionForget'])->name('actionForget');
 Route::get('jadwal', [JadwalController::class, 'index'])->name('jadwal')->middleware('auth');
 Route::get('pembayaran/{nis}', [PembayaranController::class, 'index'])->name('pembayaran')->middleware('auth');
 
@@ -65,3 +65,6 @@ Route::get('admin-konfirmasi-spp', [AdminKonfirmasiSPPController::class, 'index'
 Route::get('manage-jadwal', [AdminJadwalController::class, 'index'])->name('manage-jadwal')->middleware('auth:admin');
 Route::post('manage-jadwal/store', [AdminJadwalController::class, 'store'])->name('store')->middleware('auth:admin');
 Route::post('manage-jadwal/addToSpesificKelas/{id}', [AdminJadwalController::class, 'addToSpesificKelas'])->name('addToSpesificKelas')->middleware('auth:admin');
+
+Route::put('/admin/update/{nis}', [AdminUserController::class, 'update'])->name('admin.update')->middleware('auth:admin');
+Route::delete('/admin/delete/{nis}', [AdminUserController::class, 'destroy'])->name('admin.delete')->middleware('auth:admin');

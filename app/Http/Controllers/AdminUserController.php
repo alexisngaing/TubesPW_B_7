@@ -12,4 +12,45 @@ class AdminUserController extends Controller
         $siswa = User::all();
         return view('manage-user', compact('siswa'));
     }
+
+    public function update(Request $request, $nis)
+{
+    // Menggunakan first() tanpa menggunakan firstOrFail()
+    $siswa = User::where('nis', $nis)->first();
+
+    // Cek apakah record ditemukan
+    if (!$siswa) {
+        return redirect()->route('manage-user')->with('error', 'Data pengguna tidak ditemukan.');
+    }
+
+    $request->validate([
+        'nama' => 'required|string',
+        'agama' => 'required|string',
+        'penjurusan' => 'required|string',
+        'asal_sekolah' => 'required|string',
+        'alamat' => 'required|string',
+        // Tambahkan aturan validasi untuk bidang lain jika diperlukan
+    ]);
+
+    // Perbarui data pengguna
+    $siswa->update([
+        'nama' => $request->input('nama'),
+        'agama' => $request->input('agama'),
+        'penjurusan' => $request->input('penjurusan'),
+        'asal_sekolah' => $request->input('asal_sekolah'),
+        'alamat' => $request->input('alamat'),
+        // Tambahkan bidang lain yang akan diperbarui
+    ]);
+
+    return redirect()->route('manage-user')->with('success', 'Data pengguna berhasil diperbarui.');
+}
+
+        
+    public function destroy($nis)
+    {
+        $siswa = User::where('nis', $nis)->firstOrFail();
+        $siswa->delete();
+
+        return redirect()->route('manage-user')->with('success', 'Data siswa berhasil dihapus.');
+    }
 }
