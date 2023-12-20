@@ -56,10 +56,15 @@
                 overflow-x: auto;
             }
 
-            th,
-            td {
-                font-size: 12px;
-            }
+        th,
+        td {
+            font-size: 12px;
+        }
+
+        th {
+            padding-left: 4px;
+            padding-right: 4px;
+        }
 
             .card-body {
                 height: 100%;

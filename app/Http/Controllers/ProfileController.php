@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
@@ -38,5 +39,15 @@ class ProfileController extends Controller
         ]);
 
         return redirect()->route('profile.index')->with('success', 'Profil berhasil diperbarui.');
+    }
+
+    public function actionForget(Request $request)
+    {
+        $user = Auth::user();
+        $user->update([
+            'password' => Hash::make($request->input('password')),
+        ]);
+        // Redirect to the profile page or another appropriate page
+        return redirect()->route('profile.index');
     }
 }
