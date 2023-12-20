@@ -97,7 +97,7 @@ class RegisterController extends Controller
                 'active' => 1,
                 'email_verified_at' => date('Y-m-d H:i:s'),
             ]);
-            return "Akun anda telah diverifikasi, silakan login.";
+            return view('viewRegis');
         } else {
             return "Key tidak valid.";
         }

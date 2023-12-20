@@ -33,7 +33,7 @@
                 <p>Alamat</p>
                 <h6>{{ Auth::user()->alamat }}</h6>
 
-                    <a href="{{ route('profile.edit') }}" class="btn btn-primary mt-3">Edit Profile</a>
+                    <a href="{{ route('profile.edit') }}" class="btn btn-primary mt-3" style="background-color:#042F66;">Edit Profile</a>
             </div>
         </div>
     </div>

@@ -138,11 +138,16 @@
                                     <td class="text-center">{{ $s['agama'] }}</td>
                                     <td class="text-center">{{ $s['alamat'] }}</td>
                                     <td class="text-center">4</td>
-                                    <td class="text-center">MIPA</td>
-                                    <td class="text-center">SMP Cahaya Kebenaran</td>
-                                    <td class="text-center">
-                                        <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-edit"></i></a>
-                                        <a href="#" class="btn btn-success btn-sm"><i class="fas fa-trash"></i></a>
+                                    <td class="text-center">{{ $s['penjurusan'] }}</td>
+                                    <td class="text-center">{{ $s['asal_sekolah'] }}</td>
+                                   <!-- Tambahkan di dalam loop foreach pada file blade Anda -->
+                                   <td class="text-center">
+                                        <a href="#" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#editModal{{ $s->nis }}">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $s->nis }}">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
                                     </td>
                                 </tr>
                             @empty
@@ -150,6 +155,100 @@
                                     <td colspan="9" class="text-center">Tidak ada data</td>
                                 </tr>
                             @endforelse
+
+                            @foreach ($siswa as $s)
+                            <!-- Modal -->
+                            <div class="modal fade" id="editModal{{ $s->nis }}" tabindex="-1" aria-labelledby="editModalLabel{{ $s->nis }}" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="editModalLabel{{ $s->nis }}">Edit Data Siswa</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <!-- Isi form edit di sini -->
+                                            <form method="POST" action="{{ route('admin.update', ['nis' => $s->nis]) }}">
+                                                @csrf
+                                                @method('PUT')
+                                                <!-- Tambahkan input field sesuai kebutuhan -->
+                                                <div class="mb-3">
+                                                    <label for="nama" class="form-label">Nama</label>
+                                                    <input type="text" name="nama" class="form-control" required>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
+                                                    <input type="text" name="tanggal_lahir" class="form-control" required>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="agama" class="form-label">Agama</label>
+                                                    <select name="agama" class="form-select" required>
+                                                        <option value="" disabled selected>Pilih Agama</option>
+                                                        <option value="Islam">Islam</option>
+                                                        <option value="Kristen">Kristen</option>
+                                                        <option value="Hindu">Hindu</option>
+                                                        <option value="Buddha">Buddha</option>
+                                                        <option value="Konghucu">Katolik</option>
+                                                        <!-- Tambahkan opsi agama lainnya sesuai kebutuhan -->
+                                                    </select>
+                                                </div>
+
+
+                                                <div class="mb-3">
+                                                    <label for="tanggal_lahir" class="form-label">Alamat</label>
+                                                    <input type="text" name="tanggal_lahir" class="form-control" required>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="tanggal_lahir" class="form-label">Semester</label>
+                                                    <input type="text" name="tanggal_lahir" class="form-control" required>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="tanggal_lahir" class="form-label">Jurusan</label>
+                                                    <select name="penjurusan" class="form-select" required>
+                                                        <option value="" disabled selected>Pilih Jurusan</option>
+                                                        <option value="IPA">IPA</option>
+                                                        <option value="IPS">IPS</option>
+                                                        <!-- Tambahkan opsi penjurusan sesuai kebutuhan -->
+                                                    </select>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="tanggal_lahir" class="form-label">Asal Sekolah</label>
+                                                    <input type="text" name="tanggal_lahir" class="form-control" required>
+                                                </div>                                               
+
+                                                <button type="submit" class="btn btn-primary mt-3">Simpan Perubahan</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modal fade" id="deleteModal{{ $s->nis }}" tabindex="-1" aria-labelledby="deleteModalLabel{{ $s->nis }}" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="deleteModalLabel{{ $s->nis }}">Hapus Data Siswa</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Apakah Anda yakin ingin menghapus data siswa {{ $s->nama }}?</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <form method="POST" action="{{ route('admin.delete', ['nis' => $s->nis]) }}">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                                <button type="submit" class="btn btn-danger">Hapus</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
