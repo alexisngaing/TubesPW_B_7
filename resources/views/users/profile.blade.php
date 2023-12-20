@@ -26,16 +26,16 @@
                     <h6>{{ Auth::user()->nama }}</h6>
                     <p>NIS</p>
                     <h6>{{ Auth::user()->nis }}</h6>
-                    <p>Tempat, Tanggal Lahir</p>
-                    <h6>{{ Auth::user()->tanggal_lahir }}</h6>
-                    <p>Agama</p>
-                    <h6>{{ Auth::user()->agama }}</h6>
                     <p>Penjurusan</p>
-                    <h6>{{ Auth::user()->penjurusan }}</h6>
+                    <h6>{{ Auth::user()->penjurusan ?? '-' }}</h6>
+                    <p>Tempat, Tanggal Lahir</p>
+                    <h6>{{ Auth::user()->tanggal_lahir ?? '-' }}</h6>
+                    <p>Agama</p>
+                    <h6>{{ Auth::user()->agama ?? '-' }}</h6>
                     <p>Asal Sekolah</p>
-                    <h6>{{ Auth::user()->asal_sekolah }}</h6>
+                    <h6>{{ Auth::user()->asal_sekolah ?? '-' }}</h6>
                     <p>Alamat</p>
-                    <h6>{{ Auth::user()->alamat }}</h6>
+                    <h6>{{ Auth::user()->alamat ?? '-' }}</h6>
 
                     <a href="{{ route('profile.edit') }}" class="btn btn-primary mt-3"
                         style="background-color:#042F66;">Edit Profile</a>

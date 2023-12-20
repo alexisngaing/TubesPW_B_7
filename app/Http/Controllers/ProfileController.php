@@ -23,6 +23,7 @@ class ProfileController extends Controller
     public function update(Request $request)
     {
         $request->validate([
+            'tanggal_lahir' => 'required|date',
             'agama' => 'required|string',
             // 'penjurusan' => 'required|string',
             'asal_sekolah' => 'required|string',
@@ -32,6 +33,7 @@ class ProfileController extends Controller
         $user = Auth::user();
 
         $user->update([
+            'tanggal_lahir' => $request->input('tanggal_lahir'),
             'agama' => $request->input('agama'),
             // 'penjurusan' => $request->input('penjurusan'),
             'asal_sekolah' => $request->input('asal_sekolah'),

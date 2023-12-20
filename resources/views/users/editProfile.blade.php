@@ -43,8 +43,9 @@
                         <h6>{{ Auth::user()->nis }}</h6>
                         <p>Penjurusan</p>
                         <h6>{{ Auth::user()->penjurusan }}</h6>
-                        <p>Tempat, Tanggal Lahir</p>
-                        <h6>{{ Auth::user()->tanggal_lahir }}</h6>
+                        <p>Tanggal Lahir</p>
+                        <input type="date" name="tanggal_lahir" value="" required class="custom-input"
+                            style="margin-bottom: 10px;">
                         <p>Agama</p>
                         <select name="agama" class="custom-input" style="margin-bottom: 10px;">
                             <option value="" disabled selected>Pilih Agama</option>

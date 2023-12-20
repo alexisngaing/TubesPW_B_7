@@ -38,13 +38,15 @@ class RegisterController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'tanggal_lahir' => $request->tanggal_lahir,
-            'jenis_kelamin' => 'NULL',
-            'agama' => 'NULL',
-            'penjurusan' => 'NULL',
-            'asal_sekolah' => 'NULL',
-            'alamat' => 'NULL',
+            'jenis_kelamin' => null,
+            'agama' => null,
+            'penjurusan' => null,
+            'asal_sekolah' => null,
+            'alamat' => null,
             'verify_key' => $str,
             'id_kelas' => null,
+            'semester' => null,
+            'status' => null,
         ]);
 
         $details = [
@@ -56,37 +58,6 @@ class RegisterController extends Controller
         Mail::to($request->email)->send(new MailSend($details));
         Session::flash('message', 'Silakan cek email anda untuk verifikasi akun');
         return redirect('/');
-        // $registrationData = $request->all();
-
-        // $validate = Validator::make($registrationData, [
-        //     'nis' => 'required|max:10|unique:users',
-        //     'nama' => 'required|max:60',
-        //     'email' => 'required|email:rfc,dns|unique:users',
-        //     'password' => 'required',
-        //     'tanggal_lahir' => 'required',
-        //     'jenis_kelamin' => 'required',
-        //     // 'agama' => 'required',
-        //     // 'penjurusan' => 'required',
-        //     // 'asal_sekolah' => 'required',
-        //     // 'alamat' => 'required',
-        //     // 'foto' => 'required',
-        // ]);
-
-        // if ($validate->fails())
-        //     return response(['message' => $validate->errors()], 400);
-
-        // $registrationData['agama'] = 'NULL';
-        // $registrationData['penjurusan'] = 'NULL';
-        // $registrationData['asal_sekolah'] = 'NULL';
-        // $registrationData['alamat'] = 'NULL';
-        // $registrationData['password'] = bcrypt($request->password);
-
-        // $user = User::create($registrationData);
-
-        // return response([
-        //     'message' => 'Register Success',
-        //     'user' => $user
-        // ], 200);
     }
 
     public function verify($verify_key)
