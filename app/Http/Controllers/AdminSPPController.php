@@ -55,4 +55,45 @@ class AdminSPPController extends Controller
         // return $user;
         return redirect()->route('admin-konfirmasi-spp');
     }
+
+    public function update(Request $request, $kode_pembayaran)
+    {
+        // Menggunakan first() tanpa menggunakan firstOrFail()
+        $spp = Spp::where('kode_pembayaran', $kode_pembayaran)->first();
+        // $siswa = User::find($nis);
+
+        // Cek apakah record ditemukan
+        if (!$spp) {
+            return redirect()->route('manage-user')->with('error', 'Data pengguna tidak ditemukan.');
+        }
+
+        $request->validate([
+            'tahun_pembayaran' => 'required|string',
+            'semester' => 'required',
+            'tanggal_mulai' => 'required|string',
+            'tanggal_berakhir' => 'required|string',
+            'biaya' => 'required|string',
+            // Tambahkan aturan validasi untuk bidang lain jika diperlukan
+        ]);
+        // Perbarui data pengguna
+        $spp->update([
+            'tahun_pembayaran' => $request->input('tahun_pembayaran'),
+            'semester' => $request->input('semester'),
+            'tanggal_mulai' => $request->input('tanggal_mulai'),
+            'tanggal_berakhir' => $request->input('tanggal_berakhir'),
+            'biaya' => $request->input('biaya'),
+        ]);
+        // $dumy = $request->input('tanggal_selesai');
+        // dd($dumy);
+
+        return redirect()->route('manage-spp')->with('success', 'Data pengguna berhasil diperbarui.');
+    }
+
+    public function destroy($kode_pembayaran)
+    {
+        $siswa = Spp::where('kode_pembayaran', $kode_pembayaran)->firstOrFail();
+        $siswa->delete();
+
+        return redirect()->route('manage-spp')->with('success', 'Data SPP berhasil dihapus.');
+    }
 }

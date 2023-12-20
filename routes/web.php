@@ -70,3 +70,6 @@ Route::post('manage-jadwal/addToSpesificKelas/{id}', [AdminJadwalController::cla
 
 Route::put('/admin/update/{nis}', [AdminUserController::class, 'update'])->name('admin.update')->middleware('auth:admin');
 Route::delete('/admin/delete/{nis}', [AdminUserController::class, 'destroy'])->name('admin.delete')->middleware('auth:admin');
+
+Route::put('/manage-spp/update/{kode_pembayaran}', [AdminSppController::class, 'update'])->name('adminSpp.update')->middleware('auth:admin');
+Route::delete('/manage-spp/destroy/{kode_pembayaran}', [AdminSppController::class, 'destroy'])->name('adminSpp.delete')->middleware('auth:admin');
