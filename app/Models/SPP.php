@@ -13,7 +13,10 @@ class SPP extends Model
     protected $table = 'spp';
     protected $primaryKey = 'kode_pembayaran';
 
+    public $timestamps = false;
+
     protected $fillable = [
+        'kode_pembayaran',
         'tahun_pembayaran',
         'semester',
         'tanggal_mulai',
