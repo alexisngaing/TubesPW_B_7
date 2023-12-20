@@ -44,6 +44,7 @@
                         <h6>{{ Auth::user()->tanggal_lahir }}</h6>
                         <p>Agama</p>
                         <select name="agama" class="custom-input" style="margin-bottom: 10px;">
+                            <option value="" disabled selected>Pilih Agama</option>
                             <option value="Islam" {{ $user->agama === 'Islam' ? 'selected' : '' }}>Islam</option>
                             <option value="Kristen" {{ $user->agama === 'Kristen' ? 'selected' : '' }}>Kristen</option>
                             <option value="Katolik" {{ $user->agama === 'Katolik' ? 'selected' : '' }}>Katolik</option>
@@ -54,16 +55,17 @@
 
                         <p>Penjurusan</p>
                         <select name="penjurusan" class="custom-input" style="margin-bottom: 10px;">
+                            <option value="" disabled selected>Pilih Jurusan</option>
                             <option value="IPA" {{ $user->penjurusan === 'IPA' ? 'selected' : '' }}>IPA</option>
                             <option value="IPS" {{ $user->penjurusan === 'IPS' ? 'selected' : '' }}>IPS</option>
                             <!-- Tambahkan opsi penjurusan sesuai kebutuhan -->
                         </select>
 
                         <p>Asal Sekolah</p>
-                        <input type="text" name="asal_sekolah" value="{{ $user->asal_sekolah }}" required class="custom-input" style="margin-bottom: 10px;">
+                        <input type="text" name="asal_sekolah" value="" required class="custom-input" style="margin-bottom: 10px;">
 
                         <p>Alamat</p>
-                        <input type="text" name="alamat" value="{{ $user->alamat }}" required class="custom-input" style="margin-bottom: 10px;">
+                        <input type="text" name="alamat" value="" required class="custom-input" style="margin-bottom: 10px;">
                     </div>
                     <div class="button-container">
                         <button type="submit" style="margin-left: 25px;" class="btn btn-success mt-3">Save Changes</button>
