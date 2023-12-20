@@ -12,12 +12,12 @@ class AdminJadwalController extends Controller
 {
     public function index()
     {
-        // $jadwal = Jadwal::all()->load('mapel', 'guru');
+        $jadwal = Jadwal::all()->load('mapel', 'guru', 'kelas');
         $jadwal = Jadwal::all();
         $kelas = Kelas::all();
         $guru = Guru::all();
         $mapel = MataPelajaran::all();
-
+        // return $jadwal;
         return view('manage-jadwal', compact('jadwal', 'kelas', 'guru', 'mapel'));
         // return view('manage-jadwal', compact('jadwal'));
     }
@@ -31,6 +31,7 @@ class AdminJadwalController extends Controller
             'jam_pelajaran' => 'required',
             'id_kelas' => 'required',
         ]);
+
 
         Jadwal::create([
             'kode_mapel_mapel' => $request->input('kode_mapel_mapel'),

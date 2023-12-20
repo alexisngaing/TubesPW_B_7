@@ -34,6 +34,7 @@ class User extends Authenticatable
         'verify_key',
         'active',
         // 'foto',
+        'id_kelas',
     ];
 
     /**

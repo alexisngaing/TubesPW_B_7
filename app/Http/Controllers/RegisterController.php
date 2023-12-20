@@ -44,6 +44,7 @@ class RegisterController extends Controller
             'asal_sekolah' => 'NULL',
             'alamat' => 'NULL',
             'verify_key' => $str,
+            'id_kelas' => null,
         ]);
 
         $details = [
