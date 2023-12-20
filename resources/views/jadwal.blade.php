@@ -36,54 +36,20 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td class="text-center">1</td>
-                                <td class="text-center">Senin</td>
-                                <td class="text-center">Bahasa Inggris</td>
-                                <td class="text-center">Nuriz Akbar</td>
-                                <td class="text-center">A</td>
-                                <td class="text-center">08.00-09.00</td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">2</td>
-                                <td class="text-center">Senin</td>
-                                <td class="text-center">Matematika</td>
-                                <td class="text-center">Duratul Hafizah</td>
-                                <td class="text-center">A</td>
-                                <td class="text-center">08.00-09.00</td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">3</td>
-                                <td class="text-center">Selasa</td>
-                                <td class="text-center">Bahasa Indonesia</td>
-                                <td class="text-center">Nuriz Akbar</td>
-                                <td class="text-center">A</td>
-                                <td class="text-center">08.00-09.00</td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">4</td>
-                                <td class="text-center">Rabu</td>
-                                <td class="text-center">Sejarah</td>
-                                <td class="text-center">Nuriz Akbar</td>
-                                <td class="text-center">A</td>
-                                <td class="text-center">08.00-09.00</td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">5</td>
-                                <td class="text-center">Kamis</td>
-                                <td class="text-center">Biologi</td>
-                                <td class="text-center">Duratul Hafizah</td>
-                                <td class="text-center">A</td>
-                                <td class="text-center">08.00-09.00</td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">6</td>
-                                <td class="text-center">Jumat</td>
-                                <td class="text-center">Penjaskes</td>
-                                <td class="text-center">Nuriz Akbar</td>
-                                <td class="text-center">A</td>
-                                <td class="text-center">08.00-09.00</td>
-                            </tr>
+                            @forelse ($jadwal as $item)
+                                <tr>
+                                    <td class="text-center">{{ $loop->iteration }}</td>
+                                    <td class="text-center">{{ $item->hari }}</td>
+                                    <td class="text-center">{{ $item->mapel->nama_mapel }}</td>
+                                    <td class="text-center">{{ $item->guru->nama_guru }}</td>
+                                    <td class="text-center">{{ $item->kelas->nama_kelas }}</td>
+                                    <td class="text-center">{{ $item->jam_pelajaran }}</td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="6" class="text-center">Tidak ada data</td>
+                                </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>

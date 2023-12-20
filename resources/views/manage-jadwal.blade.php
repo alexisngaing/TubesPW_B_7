@@ -89,10 +89,10 @@
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <form action="{{ route('store') }}" method="POST">
+                    <form action="{{ route('store-jadwal') }}" method="POST">
                         @csrf
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Data SPP</h1>
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Data Jadwal</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -116,7 +116,7 @@
                                 <label class="form-label">Kelas</label>
                                 <select class="form-control" name="id_kelas" id="">
                                     @foreach ($kelas as $k)
-                                        <option value="{{ $k['id_kelas'] }}">{{ $k['nama_kelas'] }}</option>
+                                        <option value="{{ $k['id'] }}">{{ $k['nama_kelas'] }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -202,10 +202,10 @@
                                         <th class="text-center">Kode Mapel</th>
                                         <th class="text-center">Nama Mapel</th>
                                         <th class="text-center">Guru</th>
+                                        <th class="text-center">Kelas</th>
                                         <th class="text-center">Hari</th>
                                         <th class="text-center">Sesi</th>
                                         <th class="text-center">Aksi</th>
-
                                     </tr>
                                 </thead>
                                 <tbody class="fw-medium">
@@ -215,6 +215,7 @@
                                             <td class="text-center">{{ $item['mapel']['kode_mapel'] }}</td>
                                             <td class="text-center">{{ $item['mapel']['nama_mapel'] }}</td>
                                             <td class="text-center">{{ $item['guru']['nama_guru'] }}</td>
+                                            <td class="text-center">{{ $item['kelas']['nama_kelas'] }}</td>
                                             <td class="text-center">{{ $item['hari'] }}</td>
                                             <td class="text-center">{{ $item['jam_pelajaran'] }}</td>
                                             <td class="text-center">
