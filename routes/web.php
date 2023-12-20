@@ -6,11 +6,13 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\PembayaranController;
+
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeAdminController;
 use App\Http\Controllers\AdminSPPController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\AdminKonfirmasiSPPController;
+use App\Http\Controllers\AdminJadwalController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,12 +42,11 @@ Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index
 Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit')->middleware('auth');
 Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update')->middleware('auth');
 
-
 Route::get('/forgetPass', function () {
     return view('forgetPass');
 });
 
-Route::post('actionForget', [ProfileController::class, 'actionForget'])->name('actionForget'); 
+Route::post('actionForget', [ProfileController::class, 'actionForget'])->name('actionForget');
 Route::get('jadwal', [JadwalController::class, 'index'])->name('jadwal')->middleware('auth');
 Route::get('pembayaran/{nis}', [PembayaranController::class, 'index'])->name('pembayaran')->middleware('auth');
 
@@ -56,9 +57,14 @@ Route::get('admin-home', [HomeAdminController::class, 'index'])->name('admin-hom
 
 Route::get('manage-user', [AdminUserController::class, 'index'])->name('manage-user')->middleware('auth:admin');
 Route::get('manage-spp', [AdminSPPController::class, 'index'])->name('manage-spp')->middleware('auth:admin');
+Route::post('manage-spp/store', [AdminSPPController::class, 'store'])->name('store')->middleware('auth:admin');
 Route::post('manage-spp/addToSpesificKelas/{id}', [AdminSPPController::class, 'addToSpesificKelas'])->name('addToSpesificKelas')->middleware('auth:admin');
 
 Route::get('admin-konfirmasi-spp', [AdminKonfirmasiSPPController::class, 'index'])->name('admin-konfirmasi-spp')->middleware('auth:admin');
+
+Route::get('manage-jadwal', [AdminJadwalController::class, 'index'])->name('manage-jadwal')->middleware('auth:admin');
+Route::post('manage-jadwal/store', [AdminJadwalController::class, 'store'])->name('store')->middleware('auth:admin');
+Route::post('manage-jadwal/addToSpesificKelas/{id}', [AdminJadwalController::class, 'addToSpesificKelas'])->name('addToSpesificKelas')->middleware('auth:admin');
 
 Route::put('/admin/update/{nis}', [AdminUserController::class, 'update'])->name('admin.update')->middleware('auth:admin');
 Route::delete('/admin/delete/{nis}', [AdminUserController::class, 'destroy'])->name('admin.delete')->middleware('auth:admin');

@@ -6,14 +6,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
-class Kelas extends Model
+class Guru extends Model
 {
     use HasFactory, Notifiable;
 
-    protected $table = 'kelas';
-    protected $primaryKey = 'id';
+    protected $table = 'guru';
+    protected $primaryKey = 'nuptk_guru';
 
     protected $fillable = [
-        'nama_kelas',
+        'nuptk_guru',
+        'nama_guru',
     ];
 }

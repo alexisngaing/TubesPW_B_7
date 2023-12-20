@@ -87,14 +87,20 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td class="text-center">006</td>
-                                <td class="text-center">1</td>
-                                <td class="text-center">Belum Lunas</td>
-                                <td class="text-center">Rp.300.000,00</td>
-                                <td class="text-center">08-Nov-2023</td>
-                                <td class="text-center">14-Nov-2023</td>
-                            </tr>
+                            @forelse ($history as $item)
+                                <tr>
+                                    <td class="text-center">{{ $item['kode_pembayaran_spp'] }}</td>
+                                    <td class="text-center">{{ $item['spp']['semester'] }}</td>
+                                    <td class="text-center">Belum Lunas</td>
+                                    <td class="text-center">{{ $item['spp']['biaya'] }}</td>
+                                    <td class="text-center">{{ $item['spp']['tanggal_mulai'] }}</td>
+                                    <td class="text-center">{{ $item['spp']['tanggal_berakhir'] }}</td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="6" class="text-center">Tidak Ada Tagihan</td>
+                                </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>

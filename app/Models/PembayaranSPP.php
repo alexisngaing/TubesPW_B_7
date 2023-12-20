@@ -12,6 +12,7 @@ class PembayaranSPP extends Model
 
     protected $table = 'history_pembayaran_spp';
     protected $primaryKey = 'kode_riwayat_pembayaran';
+    public $timestamps = false;
 
     protected $fillable = [
         'nis_siswa',
@@ -19,4 +20,14 @@ class PembayaranSPP extends Model
         'tanggal_bayaran',
         'denda',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'nis_siswa', 'nis');
+    }
+
+    public function spp()
+    {
+        return $this->belongsTo(SPP::class, 'kode_pembayaran_spp', 'kode_pembayaran');
+    }
 }
