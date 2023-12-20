@@ -47,10 +47,6 @@ class adminSppController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-        //
-    }
     public function addToSpesificKelas(Request $request, $id)
     {
         $spp = SPP::find($id);

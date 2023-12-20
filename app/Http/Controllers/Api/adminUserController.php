@@ -17,25 +17,7 @@ class adminUserController extends Controller
         return response()->json(['siswa' => $siswa], 200);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
+   
     public function update(Request $request, $nis)
     {
         $siswa = User::where('nis', $nis)->first();
