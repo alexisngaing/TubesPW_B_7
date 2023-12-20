@@ -98,6 +98,7 @@
                                     <th class="text-center">Jumlah Kekurangan</th>
                                     <th class="text-center">Tanggal Mulai</th>
                                     <th class="text-center">Tanggal Berakhir</th>
+                                    <th class="text-center">Tanggal Pembayaran</th>
                                     <th class="text-center">Aksi</th>
                                 </tr>
                             </thead>
@@ -111,6 +112,7 @@
                                         <td class="text-center">{{ $item['spp']['biaya'] }}</td>
                                         <td class="text-center">{{ $item['spp']['tanggal_mulai'] }}</td>
                                         <td class="text-center">{{ $item['spp']['tanggal_berakhir'] }}</td>
+                                        <td class="text-center">{{ $item['tanggal_bayaran'] }}</td>
                                         <td class="text-center">
                                             <a href="{{ route('konfirmasiPembayaran', ['kode_riwayat_pembayaran' => $item]) }}"
                                                 class="btn btn-primary btn-sm"><i class="fas fa-check"></i></a>

@@ -218,12 +218,10 @@
                                         <th class="text-center">No</th>
                                         <th class="text-center">Aksi</th>
                                         <th class="text-center">Kode Pembayaran</th>
-                                        <th class="text-center">Tanggal Pembayaran</th>
                                         <th class="text-center">Semester</th>
                                         <th class="text-center">Tanggal Mulai</th>
                                         <th class="text-center">Tanggal Berakhir</th>
                                         <th class="text-center">Biaya</th>
-                                        <th class="text-center">Status</th>
                                         <th class="text-center">Input</th>
                                     </tr>
                                 </thead>
@@ -242,12 +240,10 @@
                                                 </a>
                                             </td>
                                             <td class="text-center">{{ $item['kode_pembayaran'] }}</td>
-                                            <td class="text-center">{{ $item['tahun_pembayaran'] }}</td>
                                             <td class="text-center">{{ $item['semester'] }}</td>
                                             <td class="text-center">{{ $item['tanggal_mulai'] }}</td>
                                             <td class="text-center">{{ $item['tanggal_berakhir'] }}</td>
                                             <td class="text-center">{{ $item['biaya'] }}</td>
-                                            <td class="text-center">{{ $item['status'] }}</td>
                                             <td class="text-center">
                                                 <form method="POST"
                                                     action="{{ route('addToSpesificKelas', $item['kode_pembayaran']) }}">

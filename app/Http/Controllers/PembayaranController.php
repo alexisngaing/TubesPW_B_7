@@ -36,6 +36,7 @@ class PembayaranController extends Controller
         }
 
         $payment->update([
+            'tanggal_bayaran' => date('Y-m-d'),
             'status' => 'Menunggu Konfirmasi',
         ]);
 
