@@ -1,4 +1,4 @@
-@extends('admin-dashboard')
+@extends('admin/admin-dashboard')
 @section('content')
     <style>
         td {
@@ -131,6 +131,8 @@
                                 <th class="text-center">Semester</th>
                                 <th class="text-center">Jurusan</th>
                                 <th class="text-center">Asal Sekolah</th>
+                                <th class="text-center">Kelas</th>
+                                <th class="text-center">Status</th>
                                 <th class="text-center">Aksi</th>
                             </tr>
                         </thead>
@@ -140,12 +142,13 @@
                                     <td class="text-center">{{ $s['nis'] }}</td>
                                     <td class="text-center">{{ $s['nama'] }}</td>
                                     <td class="text-center">{{ $s['tanggal_lahir'] }}</td>
-                                    <td class="text-center">{{ $s['agama'] }}</td>
+                                    <td class="text-center">{{ $s['agama'] ?? '-' }}</td>
                                     <td class="text-center">{{ $s['alamat'] }}</td>
-                                    <td class="text-center">4</td>
-                                    <td class="text-center">{{ $s['penjurusan'] }}</td>
-                                    <td class="text-center">{{ $s['asal_sekolah'] }}</td>
-                                    <!-- Tambahkan di dalam loop foreach pada file blade Anda -->
+                                    <td class="text-center">{{ $s['semester'] ?? '-' }}</td>
+                                    <td class="text-center">{{ $s['penjurusan'] ?? '-' }}</td>
+                                    <td class="text-center">{{ $s['asal_sekolah'] ?? '-' }}</td>
+                                    <td class="text-center">{{ $s['kelas']['nama_kelas'] ?? '-' }}</td>
+                                    <td class="text-center">{{ $s['status'] ?? '-' }}</td>
                                     <td class="text-center">
                                         <a href="#" class="btn btn-danger btn-sm" data-bs-toggle="modal"
                                             data-bs-target="#editModal{{ $s->nis }}">
@@ -176,23 +179,20 @@
                                                     aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <!-- Isi form edit di sini -->
                                                 <form method="POST"
                                                     action="{{ route('admin.update', ['nis' => $s->nis]) }}">
                                                     @csrf
                                                     @method('PUT')
-                                                    <!-- Tambahkan input field sesuai kebutuhan -->
                                                     <div class="mb-3">
                                                         <label for="nama" class="form-label">Nama</label>
-                                                        <input type="text" name="nama" class="form-control" required>
+                                                        <input type="text" name="nama" class="form-control"
+                                                            value="{{ old('nama', $s->nama) }}" required>
                                                     </div>
-
                                                     <div class="mb-3">
-                                                        <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
+                                                        <label class="form-label">Tanggal Lahir</label>
                                                         <input type="text" name="tanggal_lahir" class="form-control"
-                                                            required>
+                                                            value="{{ old('tanggal_lahir', $s->tanggal_lahir) }}" required>
                                                     </div>
-
                                                     <div class="mb-3">
                                                         <label for="agama" class="form-label">Agama</label>
                                                         <select name="agama" class="form-select" required>
@@ -202,39 +202,47 @@
                                                             <option value="Hindu">Hindu</option>
                                                             <option value="Buddha">Buddha</option>
                                                             <option value="Konghucu">Katolik</option>
-                                                            <!-- Tambahkan opsi agama lainnya sesuai kebutuhan -->
                                                         </select>
                                                     </div>
-
-
                                                     <div class="mb-3">
-                                                        <label for="tanggal_lahir" class="form-label">Alamat</label>
-                                                        <input type="text" name="tanggal_lahir" class="form-control"
-                                                            required>
+                                                        <label class="form-label">Alamat</label>
+                                                        <input type="text" name="alamat" class="form-control"
+                                                            value="{{ old('alamat', $s->alamat) }}" required>
                                                     </div>
-
                                                     <div class="mb-3">
-                                                        <label for="tanggal_lahir" class="form-label">Semester</label>
-                                                        <input type="text" name="tanggal_lahir" class="form-control"
-                                                            required>
+                                                        <label class="form-label">Semester</label>
+                                                        <input type="text" name="semester" class="form-control"
+                                                            value="{{ old('semester', $s->semester) }}" required>
                                                     </div>
-
                                                     <div class="mb-3">
-                                                        <label for="tanggal_lahir" class="form-label">Jurusan</label>
+                                                        <label class="form-label">Jurusan</label>
                                                         <select name="penjurusan" class="form-select" required>
                                                             <option value="" disabled selected>Pilih Jurusan</option>
                                                             <option value="IPA">IPA</option>
                                                             <option value="IPS">IPS</option>
-                                                            <!-- Tambahkan opsi penjurusan sesuai kebutuhan -->
                                                         </select>
                                                     </div>
-
                                                     <div class="mb-3">
                                                         <label for="tanggal_lahir" class="form-label">Asal Sekolah</label>
-                                                        <input type="text" name="tanggal_lahir" class="form-control"
+                                                        <input type="text" name="asal_sekolah" class="form-control"
+                                                            value="{{ old('tanggal_lahir', $s->tanggal_lahir) }}"
                                                             required>
                                                     </div>
-
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Kelas</label>
+                                                        <select name="id_kelas" class="form-select" required>
+                                                            <option value="" selected>Pilih Kelas</option>
+                                                            @foreach ($kelas as $k)
+                                                                <option value="{{ $k->id }}">{{ $k->nama_kelas }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Status</label>
+                                                        <input type="text" name="status" class="form-control"
+                                                            value="{{ old('status', $s->status) }}" required>
+                                                    </div>
                                                     <button type="submit" class="btn btn-primary mt-3">Simpan
                                                         Perubahan</button>
                                                 </form>

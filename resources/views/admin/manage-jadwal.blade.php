@@ -1,4 +1,4 @@
-@extends('admin-dashboard')
+@extends('admin/admin-dashboard')
 @section('content')
     <style>
         td {

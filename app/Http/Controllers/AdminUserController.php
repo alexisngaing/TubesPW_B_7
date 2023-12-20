@@ -4,48 +4,56 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Kelas;
 
 class AdminUserController extends Controller
 {
     public function index()
     {
-        $siswa = User::all();
-        return view('manage-user', compact('siswa'));
+        $siswa = User::all()->load('kelas');
+        $kelas = Kelas::all();
+        // return $siswa;
+        return view('admin/manage-user', compact('siswa', 'kelas'));
     }
 
     public function update(Request $request, $nis)
-{
-    // Menggunakan first() tanpa menggunakan firstOrFail()
-    $siswa = User::where('nis', $nis)->first();
+    {
+        $siswa = User::find($nis);
 
-    // Cek apakah record ditemukan
-    if (!$siswa) {
-        return redirect()->route('manage-user')->with('error', 'Data pengguna tidak ditemukan.');
+        // return $nis;
+
+        if (!$siswa) {
+            return redirect()->route('manage-user')->with('error', 'Data pengguna tidak ditemukan.');
+        }
+        // return $request;
+        $request->validate([
+            'nama' => 'required|string',
+            'tanggal_lahir' => 'required',
+            'agama' => 'required',
+            'alamat' => 'required',
+            'penjurusan' => 'required',
+            'asal_sekolah' => 'required',
+            'id_kelas' => 'required',
+            'semester' => 'required',
+            'status' => 'required',
+        ]);
+
+        $siswa->update([
+            'nama' => $request->input('nama'),
+            'tanggal_lahir' => $request->input('tanggal_lahir'),
+            'agama' => $request->input('agama'),
+            'alamat' => $request->input('alamat'),
+            'penjurusan' => $request->input('penjurusan'),
+            'asal_sekolah' => $request->input('asal_sekolah'),
+            'id_kelas' => $request->input('id_kelas'),
+            'semester' => $request->input('semester'),
+            'status' => $request->input('status'),
+        ]);
+
+        return redirect()->route('manage-user')->with('success', 'Data pengguna berhasil diperbarui.');
     }
 
-    $request->validate([
-        'nama' => 'required|string',
-        'agama' => 'required|string',
-        'penjurusan' => 'required|string',
-        'asal_sekolah' => 'required|string',
-        'alamat' => 'required|string',
-        // Tambahkan aturan validasi untuk bidang lain jika diperlukan
-    ]);
 
-    // Perbarui data pengguna
-    $siswa->update([
-        'nama' => $request->input('nama'),
-        'agama' => $request->input('agama'),
-        'penjurusan' => $request->input('penjurusan'),
-        'asal_sekolah' => $request->input('asal_sekolah'),
-        'alamat' => $request->input('alamat'),
-        // Tambahkan bidang lain yang akan diperbarui
-    ]);
-
-    return redirect()->route('manage-user')->with('success', 'Data pengguna berhasil diperbarui.');
-}
-
-        
     public function destroy($nis)
     {
         $siswa = User::where('nis', $nis)->firstOrFail();

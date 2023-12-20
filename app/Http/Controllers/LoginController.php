@@ -14,7 +14,7 @@ class LoginController extends Controller
         if (Auth::check()) {
             return redirect('home');
         } else {
-            return view('login');
+            return view('auth/login');
         }
     }
 
@@ -39,31 +39,6 @@ class LoginController extends Controller
             Session::flash('error', 'NIS atau password salah');
             return redirect('/');
         }
-
-        // $loginData = $request->all();
-
-        // $validate = Validator::make($loginData, [
-        //     'nis' => 'required|exists:users,nis',
-        //     'password' => 'required',
-        // ]);
-
-        // if ($validate->fails())
-        //     return response(['message' => $validate->errors()], 400);
-
-        // if (!Auth::attempt($loginData))
-        //     return response(['message' => 'Invalid Credentials'], 400);
-
-        // /** @var \App\Models\User $user **/
-
-        // $user = Auth::user();
-        // $token = $user->createToken('Authentication Token')->accessToken;
-
-        // return response([
-        //     'message' => 'Login Success',
-        //     'user' => $user,
-        //     'token_type' => 'Bearer',
-        //     'token' => $token
-        // ], 200);
     }
 
     public function actionLogout()
@@ -78,7 +53,7 @@ class LoginController extends Controller
         $user->update([
             'password' => Hash::make($request->input('password')),
         ]);
-        // Redirect to the profile page or another appropriate page
+
         return redirect()->route('profile');
     }
 }

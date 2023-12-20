@@ -35,6 +35,8 @@ class User extends Authenticatable
         'active',
         // 'foto',
         'id_kelas',
+        'semester',
+        'status',
     ];
 
     /**
@@ -59,7 +61,7 @@ class User extends Authenticatable
 
     public function kelas()
     {
-        return $this->belongsTo(Kelas::class, 'id', 'id_kelas');
+        return $this->belongsTo(Kelas::class, 'id_kelas', 'id');
     }
 
     public function pembayaranSPP()

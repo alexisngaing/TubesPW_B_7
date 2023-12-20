@@ -22,6 +22,5 @@ class SPP extends Model
         'tanggal_mulai',
         'tanggal_berakhir',
         'biaya',
-        'status',
     ];
 }

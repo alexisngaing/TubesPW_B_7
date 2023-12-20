@@ -1,4 +1,4 @@
-@extends('dashboard')
+@extends('users/dashboard')
 @section('content')
     <style>
         th,

@@ -14,7 +14,7 @@ class AdminSPPController extends Controller
     {
         $spp = SPP::all();
         $kelas = Kelas::all();
-        return view('manage-spp', compact('spp', 'kelas'));
+        return view('admin/manage-spp', compact('spp', 'kelas'));
     }
 
     public function store(Request $request)
@@ -26,7 +26,6 @@ class AdminSPPController extends Controller
             'tanggal_mulai' => 'required',
             'tanggal_berakhir' => 'required',
             'biaya' => 'required',
-            'status' => 'required',
         ]);
 
         $data = $request->all();
@@ -53,6 +52,6 @@ class AdminSPPController extends Controller
             $payment->save();
         }
         // return $user;
-        return redirect()->route('admin-konfirmasi-spp');
+        return redirect()->route('manage-spp');
     }
 }

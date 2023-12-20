@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initialscale=1">
-    <title>SMIS</title>
+    <title>SHIS</title>
     <!-- Google Font: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -67,7 +67,6 @@
             }
         }
     </style>
-
 </head>
 
 <body>
@@ -75,26 +74,29 @@
         <!-- Sidebar-->
         <div class="border-end" style="background-color: #F9A835" id="sidebar-wrapper">
             <div class="d-flex sidebar-heading border-bottom gap-3 p-4" style="background-color: #042F66">
-                <img src="{{ asset('img/pfp.jpg') }}" alt="logo" class="img-fluid rounded-4" style="width: 4rem">
+                <img src="{{ asset('img/admin.jpg') }}" alt="logo" class="img-fluid rounded-4" style="width: 4rem">
                 <div class="text-white fw-bold d-flex flex-column justify-content-center align-items-start">
                     <p class="mb-0" style="font-size: 16px">{{ Auth::user()->nama }}</p>
-                    <p class="mb-0" style="font-size: 12px">12 MIPA 2</p>
+                    <p class="mb-0" style="font-size: 12px">{{ Auth::user()->no_pegawai }}</p>
                 </div>
             </div>
             <div class="list-group list-group-flush">
-                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ route('home') }}"><i
-                        class="fas fa-house"></i><span style="margin-left: 10px">Home</span></a>
-                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ route('profile.index') }}"><i
-                        class="fas fa-user"></i><span style="margin-left: 14px">Profil</span></a>
-                <a class="list-group-item p-3 custom-bg-color fw-semibold"
-                    href="{{ route('jadwal', Auth::user()->id_kelas ?? '') }}"><i class="fas fa-calendar-days"></i>
-                    <span style="margin-left: 10px">Jadwal</span></a>
-                <a class="list-group-item p-3 custom-bg-color fw-semibold" href=""><i
-                        class="fas fa-wallet"></i><span style="margin-left: 12px">Pembayaran
-                        SPP</span></a>
-                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ route('actionLogout') }}"><i
+                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ route('admin-home') }}"><i
+                        class="fas fa-house"></i><span style="margin-left: 12px">Home</span></a>
+                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ route('manage-user') }}"><i
+                        class="fas fa-users"></i><span style="margin-left: 10px">Manage User</span></a>
+                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ route('manage-spp') }}"><i
+                        class="fas fa-bars-progress"></i>
+                    <span style="margin-left: 10px">Manage Data SPP</span></a>
+                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ route('getAllPayment') }}"><i
+                        class="fas fa-bars"></i>
+                    <span style="margin-left: 10px">Pembayaran SPP</span></a>
+                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ route('manage-jadwal') }}"><i
+                        class="fas fa-calendar"></i>
+                    <span style="margin-left: 9px">Manage Jadwal</span></a>
+                <a class="list-group-item p-3 custom-bg-color fw-semibold" href="{{ route('admin') }}"><i
                         class="fas fa-right-from-bracket"></i>
-                    <span style="margin-left: 8px">Logout</span></a>
+                    <span style="margin-left: 9px">Logout</span></a>
             </div>
         </div>
         <!-- Page content wrapper-->

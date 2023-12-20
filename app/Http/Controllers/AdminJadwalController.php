@@ -18,7 +18,7 @@ class AdminJadwalController extends Controller
         $guru = Guru::all();
         $mapel = MataPelajaran::all();
         // return $jadwal;
-        return view('manage-jadwal', compact('jadwal', 'kelas', 'guru', 'mapel'));
+        return view('admin/manage-jadwal', compact('jadwal', 'kelas', 'guru', 'mapel'));
         // return view('manage-jadwal', compact('jadwal'));
     }
 

@@ -1,4 +1,4 @@
-@extends('admin-dashboard')
+@extends('admin/admin-dashboard')
 @section('content')
     <style>
         td {
@@ -155,7 +155,6 @@
                 </div>
             </div>
         </div>
-
         <div class="container-fluid" style="padding: 10px;">
             <div class="card" style=" margin-top: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);">
                 <div class="card-body" style="height: 100vh;">
@@ -224,7 +223,6 @@
                                         <th class="text-center">Tanggal Mulai</th>
                                         <th class="text-center">Tanggal Berakhir</th>
                                         <th class="text-center">Biaya</th>
-                                        <th class="text-center">Status</th>
                                         <th class="text-center">Input</th>
                                     </tr>
                                 </thead>
@@ -244,14 +242,11 @@
                                             <td class="text-center">{{ $item['tanggal_mulai'] }}</td>
                                             <td class="text-center">{{ $item['tanggal_berakhir'] }}</td>
                                             <td class="text-center">{{ $item['biaya'] }}</td>
-                                            <td class="text-center">{{ $item['status'] }}</td>
                                             <td class="text-center">
                                                 <form method="POST"
                                                     action="{{ route('addToSpesificKelas', $item['kode_pembayaran']) }}">
                                                     @csrf
                                                     <div class="d-flex gap-2">
-
-
                                                         <select name="id_kelas" id="entries"
                                                             class="form-select form-select-sm"
                                                             style="width: 70px; height: 30px;">

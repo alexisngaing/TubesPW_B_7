@@ -1,4 +1,4 @@
-@extends('admin-dashboard')
+@extends('admin/admin-dashboard')
 @section('content')
     <link rel="stylesheet" href="{{ asset('css/home-style.css') }}">
     <div class="container-details">

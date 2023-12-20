@@ -11,12 +11,34 @@ class PembayaranController extends Controller
 {
     public function index($nis)
     {
-        $history = PembayaranSPP::where('nis_siswa', $nis)->get()->load('spp', 'user');
+        $tagihan = PembayaranSPP::where('nis_siswa', $nis)->where(function ($query) {
+            $query->where('status', null)->orWhere('status', 'Menunggu Konfirmasi');
+        })->get()->load('spp', 'user');
+        $history = PembayaranSPP::where('nis_siswa', $nis)->where('status', 'Lunas')->get()->load('spp', 'user');
 
+        if (!$tagihan) {
+            return redirect()->back();
+        }
         if (!$history) {
             return redirect()->back();
         }
 
-        return view('pembayaran', compact('history'));
+        // return $tagihan;
+
+        return view('users/pembayaran', compact('tagihan', 'history'));
+    }
+
+    public function ajukanKonfirmasi($kode_riwayat_pembayaran)
+    {
+        $payment = PembayaranSPP::where('kode_riwayat_pembayaran', $kode_riwayat_pembayaran)->first();
+        if (!$payment) {
+            return redirect()->back();
+        }
+
+        $payment->update([
+            'status' => 'Menunggu Konfirmasi',
+        ]);
+
+        return redirect()->back();
     }
 }
