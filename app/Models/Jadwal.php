@@ -19,6 +19,7 @@ class Jadwal extends Model
         'nuptk_guru_guru',
         'hari',
         'jam_pelajaran',
+        'id_kelas',
     ];
 
     public function mapel()
@@ -29,5 +30,10 @@ class Jadwal extends Model
     public function guru()
     {
         return $this->belongsTo(Guru::class, 'nuptk_guru_guru', 'nuptk_guru');
+    }
+
+    public function kelas()
+    {
+        return $this->belongsTo(Kelas::class, 'id_kelas', 'id');
     }
 }

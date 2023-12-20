@@ -113,6 +113,14 @@
                                 </select>
                             </div>
                             <div class="mb-3">
+                                <label class="form-label">Kelas</label>
+                                <select class="form-control" name="id_kelas" id="">
+                                    @foreach ($kelas as $k)
+                                        <option value="{{ $k['id_kelas'] }}">{{ $k['nama_kelas'] }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="mb-3">
                                 <label class="form-label">Hari</label>
                                 <input type="text" class="form-control shadow-input" name="hari" required>
                             </div>
@@ -197,7 +205,7 @@
                                         <th class="text-center">Hari</th>
                                         <th class="text-center">Sesi</th>
                                         <th class="text-center">Aksi</th>
-                                        <th class="text-center">Tambahkan ke Kelas</th>
+
                                     </tr>
                                 </thead>
                                 <tbody class="fw-medium">
@@ -214,24 +222,6 @@
                                                         class="fas fa-edit"></i></a>
                                                 <a href="#" class="btn btn-success btn-sm"><i
                                                         class="fas fa-trash"></i></a>
-                                            </td>
-                                            <td class="text-center">
-                                                <form method="POST" action="">
-                                                    @csrf
-                                                    <div class="d-flex gap-2">
-                                                        <select name="id_kelas" id="entries"
-                                                            class="form-select form-select-sm"
-                                                            style="width: 70px; height: 30px;">
-                                                            @foreach ($kelas as $k)
-                                                                <option value="{{ $k['id'] }}">
-                                                                    {{ $k['nama_kelas'] }}
-                                                                </option>
-                                                            @endforeach
-                                                        </select>
-                                                        <button type="submit" class="btn btn-primary btn-sm"><i
-                                                                class="fas fa-add"></i></button>
-                                                    </div>
-                                                </form>
                                             </td>
                                         </tr>
                                     @empty

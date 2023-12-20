@@ -29,6 +29,7 @@ class AdminJadwalController extends Controller
             'nuptk_guru_guru' => 'required',
             'hari' => 'required',
             'jam_pelajaran' => 'required',
+            'id_kelas' => 'required',
         ]);
 
         Jadwal::create([
@@ -36,6 +37,7 @@ class AdminJadwalController extends Controller
             'nuptk_guru_guru' => $request->input('nuptk_guru_guru'),
             'hari' => $request->input('hari'),
             'jam_pelajaran' => $request->input('jam_pelajaran'),
+            'id_kelas' => $request->input('id_kelas'),
         ]);
 
         return redirect()->route('manage-jadwal')->with('success', 'Jadwal berhasil ditambahkan.');
