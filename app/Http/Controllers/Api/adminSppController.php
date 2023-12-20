@@ -1,38 +1,52 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\SPP;
+use illuminate\Support\Facades\Validator;
 use App\Models\PembayaranSPP;
 use App\Models\Kelas;
 use App\Models\User;
 
-class AdminSPPController extends Controller
+class adminSppController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
-        $spp = SPP::all();
-        $kelas = Kelas::all();
-        return view('admin/manage-spp', compact('spp', 'kelas'));
+        $spp = Spp::all();
+        return response()->json($spp);
     }
 
+    /**
+     * Store a newly created resource in storage.
+     */
     public function store(Request $request)
     {
-        $this->validate($request, [
+        $validator = Validator::make($request->all(), [
             'kode_pembayaran' => 'required|string|max:255|unique:spp',
             'tahun_pembayaran' => 'required',
             'semester' => 'required',
             'tanggal_mulai' => 'required',
             'tanggal_berakhir' => 'required',
             'biaya' => 'required',
+            'status' => 'required',
         ]);
 
-        $data = $request->all();
-        SPP::create($data);
-        return redirect()->route('manage-spp');
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 400);
+        }
+
+        $spp = Spp::create($request->all());
+        return response()->json($spp, 201);
     }
 
+    /**
+     * Display the specified resource.
+     */
     public function addToSpesificKelas(Request $request, $id)
     {
         $spp = SPP::find($id);
@@ -52,29 +66,32 @@ class AdminSPPController extends Controller
             $payment->save();
         }
         // return $user;
-        return redirect()->route('manage-spp');
+        return redirect()->route('admin-konfirmasi-spp');
     }
 
+    /**
+     * Update the specified resource in storage.
+     */
     public function update(Request $request, $kode_pembayaran)
     {
-        // Menggunakan first() tanpa menggunakan firstOrFail()
         $spp = Spp::where('kode_pembayaran', $kode_pembayaran)->first();
-        // $siswa = User::find($nis);
 
-        // Cek apakah record ditemukan
         if (!$spp) {
-            return redirect()->route('manage-user')->with('error', 'Data pengguna tidak ditemukan.');
+            return response()->json(['error' => 'Data pengguna tidak ditemukan.'], 404);
         }
 
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'tahun_pembayaran' => 'required|string',
             'semester' => 'required',
             'tanggal_mulai' => 'required|string',
             'tanggal_berakhir' => 'required|string',
             'biaya' => 'required|string',
-            // Tambahkan aturan validasi untuk bidang lain jika diperlukan
         ]);
-        // Perbarui data pengguna
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 400);
+        }
+
         $spp->update([
             'tahun_pembayaran' => $request->input('tahun_pembayaran'),
             'semester' => $request->input('semester'),
@@ -82,17 +99,18 @@ class AdminSPPController extends Controller
             'tanggal_berakhir' => $request->input('tanggal_berakhir'),
             'biaya' => $request->input('biaya'),
         ]);
-        // $dumy = $request->input('tanggal_selesai');
-        // dd($dumy);
 
-        return redirect()->route('manage-spp')->with('success', 'Data pengguna berhasil diperbarui.');
+        return response()->json($spp, 200);
     }
 
+    /**
+     * Remove the specified resource from storage.
+     */
     public function destroy($kode_pembayaran)
     {
-        $siswa = Spp::where('kode_pembayaran', $kode_pembayaran)->firstOrFail();
-        $siswa->delete();
+        $spp = Spp::where('kode_pembayaran', $kode_pembayaran)->firstOrFail();
+        $spp->delete();
 
-        return redirect()->route('manage-spp')->with('success', 'Data SPP berhasil dihapus.');
+        return response()->json(null, 204);
     }
 }

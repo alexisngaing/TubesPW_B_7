@@ -12,4 +12,5 @@ class JadwalController extends Controller
         $jadwal = Jadwal::where('id_kelas', $id_kelas)->get()->load('mapel', 'guru', 'kelas');
         return view('users/jadwal', compact('jadwal'));
     }
+    
 }
