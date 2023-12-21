@@ -151,11 +151,6 @@
                             <input type="password" class="form-control mb-2" id="floatingPassword" name="password" placeholder="Password" required />
                             <label for="floatingPassword">Password</label>
                         </div>
-                        <!-- Forgot Password -->
-                        <div class="text-end fs-6">
-                            <a href="{{url('forgetPass')}}">Forgot Password</a>
-                        </div>
-                        <!-- Submit button -->
                         <button type="submit" style="width: 25%;background-color:#042F66; border-color:#042F66" class="btn btn-primary btn-block mb-2 mt-4 d-grid col-6 mx-auto ">
                             Login
                         </button>
