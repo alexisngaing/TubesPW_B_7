@@ -19,7 +19,7 @@
 -     Password: 12345
 
 ## Bonus yang diambil:
--     Routes API:
+- Routes API:
 
 User:
 - POST api/spp
