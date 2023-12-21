@@ -97,10 +97,6 @@
                                 <input type="text" class="form-control shadow-input" name="kode_pembayaran" required>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Tahun Pembayaran</label>
-                                <input type="date" class="form-control shadow-input" name="tahun_pembayaran" required>
-                            </div>
-                            <div class="mb-3">
                                 <label class="form-label">Semester</label>
                                 <input type="text" class="form-control shadow-input" name="semester" required>
                             </div>
@@ -115,10 +111,6 @@
                             <div class="mb-3">
                                 <label class="form-label">Biaya</label>
                                 <input type="number" class="form-control shadow-input" name="biaya" required>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Status</label>
-                                <input type="text" class="form-control shadow-input" name="status" required>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -251,12 +243,6 @@
                                                             @csrf
                                                             @method('PUT')
                                                             <!-- Tambahkan input field sesuai kebutuhan -->
-                                                            <div class="mb-3">
-                                                                <label class="form-label">Tahun Pembayaran</label>
-                                                                <input type="date" class="form-control shadow-input"
-                                                                    name="tahun_pembayaran" required>
-                                                            </div>
-
                                                             <div class="mb-3">
                                                                 <label class="form-label">Tanggal Mulai</label>
                                                                 <input type="date" class="form-control shadow-input"
