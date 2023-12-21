@@ -28,8 +28,10 @@
                     <h6>{{ Auth::user()->nis }}</h6>
                     <p>Penjurusan</p>
                     <h6>{{ Auth::user()->penjurusan ?? '-' }}</h6>
-                    <p>Tempat, Tanggal Lahir</p>
+                    <p>Tanggal Lahir</p>
                     <h6>{{ Auth::user()->tanggal_lahir ?? '-' }}</h6>
+                    <p>Jenis Kelamin</p>
+                    <h6>{{ Auth::user()->jenis_kelamin ?? '-' }}</h6>
                     <p>Agama</p>
                     <h6>{{ Auth::user()->agama ?? '-' }}</h6>
                     <p>Asal Sekolah</p>

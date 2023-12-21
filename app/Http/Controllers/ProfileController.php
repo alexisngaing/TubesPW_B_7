@@ -24,6 +24,7 @@ class ProfileController extends Controller
     {
         $request->validate([
             'tanggal_lahir' => 'required|date',
+            'jenis_kelamin' => 'required',
             'agama' => 'required|string',
             // 'penjurusan' => 'required|string',
             'asal_sekolah' => 'required|string',
@@ -34,6 +35,7 @@ class ProfileController extends Controller
 
         $user->update([
             'tanggal_lahir' => $request->input('tanggal_lahir'),
+            'jenis_kelamin' => $request->input('jenis_kelamin'),
             'agama' => $request->input('agama'),
             // 'penjurusan' => $request->input('penjurusan'),
             'asal_sekolah' => $request->input('asal_sekolah'),

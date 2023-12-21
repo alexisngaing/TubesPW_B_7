@@ -21,7 +21,6 @@ class AdminSPPController extends Controller
     {
         $this->validate($request, [
             'kode_pembayaran' => 'required|string|max:255|unique:spp',
-            'tahun_pembayaran' => 'required',
             'semester' => 'required',
             'tanggal_mulai' => 'required',
             'tanggal_berakhir' => 'required',

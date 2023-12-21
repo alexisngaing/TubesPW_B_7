@@ -45,7 +45,7 @@
             top: 0;
             left: 0;
             width: 80%;
-            height: 130%;
+            height: 100vh;
             background: linear-gradient(to right, rgba(0, 0, 0, 0.7), transparent);
         }
 
@@ -163,7 +163,7 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Tanggal Lahir</label>
-                            <input type="text" class="form-control shadow-input" name="tanggal_lahir" required>
+                            <input type="date" class="form-control shadow-input" name="tanggal_lahir" required>
                         </div>
                         {{-- <div class="mb-3">
                             <label for="tlpn" class="form-label">No Telepon</label>
@@ -177,7 +177,8 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Password</label>
-                            <input type="password" class="form-control shadow-input" name="password" required>
+                            <input type="password" class="form-control shadow-input" name="password"
+                                placeholder="Password" required>
                         </div>
                         {{-- <div class="mb-3">
                             <label class="form-label">Confirm Password</label>

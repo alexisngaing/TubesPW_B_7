@@ -169,46 +169,6 @@
                             </button>
                             <!-- <button class="btn btn-primary rounded-1"><i class="fas fa-file-lines"></i> Laporan</button> -->
                         </div>
-                        <div class="data-control-show-select gap-2">
-                            <h5>Filter Data</h5>
-                            <div class="d-flex gap-2">
-                                <select name="tahun-ajaran" id="tahun-ajaran"
-                                    class="form-select form-select-sm tahun-select">
-                                    <option value="semua-tahun">Semua Tahun Ajaran</option>
-                                    <option value="2023/2024">2023/2024</option>
-                                    <option value="2022/2023">2022/2023</option>
-                                    <option value="2021/2022">2021/2022</option>
-                                </select>
-                                <select name="bulan" id="bulan" class="form-select form-select-sm bulan-select">
-                                    <option value="semua-bulan">Semua Bulan</option>
-                                    <option value="januari">Januari</option>
-                                    <option value="februari">Februari</option>
-                                    <option value="maret">Maret</option>
-                                    <option value="april">April</option>
-                                    <option value="mei">Mei</option>
-                                    <option value="juni">Juni</option>
-                                    <option value="juli">Juli</option>
-                                    <option value="agustus">Agustus</option>
-                                    <option value="september">September</option>
-                                    <option value="oktober">Oktober</option>
-                                    <option value="november">November</option>
-                                    <option value="desember">Desember</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="position-relative" style="padding-bottom: 2rem;">
-                        <div class="d-flex gap-1 fw-semibold position-absolute top-0 start-0">
-                            <p>Show</p>
-                            <select name="entries" id="entries" class="form-select form-select-sm"
-                                style="width: 70px; height: 30px;">
-                                <option value="10">10</option>
-                                <option value="25">25</option>
-                                <option value="50">50</option>
-                                <option value="100">100</option>
-                            </select>
-                            <p>entries</p>
-                        </div>
                     </div>
                     <div style="display: flex;">
                         <div class="table-container">
@@ -269,6 +229,7 @@
                                             <td colspan="7" class="text-center">Tidak ada data</td>
                                         </tr>
                                     @endforelse
+
                                     <!--modal edit-->
                                     @foreach ($spp as $index => $item)
                                         <div class="modal fade" id="editModal{{ $item->kode_pembayaran }}"

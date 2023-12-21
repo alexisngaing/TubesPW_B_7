@@ -43,7 +43,7 @@ Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.e
 Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update')->middleware('auth');
 
 Route::get('/forgetPass', function () {
-    return view('forgetPass');
+    return view('auth/forgetPass');
 });
 
 Route::post('actionForget', [ProfileController::class, 'actionForget'])->name('actionForget');
