@@ -72,7 +72,7 @@
 <body>
     <div class="d-flex" id="wrapper">
         <!-- Sidebar-->
-        <div class="border-end" style="background-color: #F9A835" id="sidebar-wrapper">
+        <div class="border-end fixed-sidebar" style="background-color: #F9A835" id="sidebar-wrapper">
             <div class="d-flex sidebar-heading border-bottom gap-3 p-4" style="background-color: #042F66">
                 <img src="{{ asset('img/admin.jpg') }}" alt="logo" class="img-fluid rounded-4" style="width: 4rem">
                 <div class="text-white fw-bold d-flex flex-column justify-content-center align-items-start">

@@ -17,7 +17,7 @@ class adminUserController extends Controller
         return response()->json(['siswa' => $siswa], 200);
     }
 
-   
+
     public function update(Request $request, $nis)
     {
         $siswa = User::where('nis', $nis)->first();
@@ -33,7 +33,6 @@ class adminUserController extends Controller
             'asal_sekolah' => 'required|string',
             'semester' => 'required',
             'alamat' => 'required|string',
-            // Tambahkan aturan validasi untuk bidang lain jika diperlukan
         ]);
 
         $siswa->update([
@@ -43,7 +42,6 @@ class adminUserController extends Controller
             'asal_sekolah' => $request->input('asal_sekolah'),
             'semester' => $request->input('semester'),
             'alamat' => $request->input('alamat'),
-            // Tambahkan bidang lain yang akan diperbarui
         ]);
 
         return response()->json(['message' => 'Data pengguna berhasil diperbarui.'], 200);

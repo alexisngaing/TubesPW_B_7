@@ -20,7 +20,7 @@ class registerController extends Controller
             'email' => 'required|email:rfc,dns|unique:users',
             'password' => 'required',
             'tanggal_lahir' => 'required',
-            'jenis_kelamin' => 'required',
+            // 'jenis_kelamin' => 'required',
             // 'agama' => 'required',
             // 'penjurusan' => 'required',
             // 'asal_sekolah' => 'required',
@@ -31,10 +31,11 @@ class registerController extends Controller
         if ($validate->fails())
             return response(['message' => $validate->errors()], 400);
 
-        $registrationData['agama'] = 'NULL';
-        $registrationData['penjurusan'] = 'NULL';
-        $registrationData['asal_sekolah'] = 'NULL';
-        $registrationData['alamat'] = 'NULL';
+        $registrationData['jenis_kelamin'] = null;
+        $registrationData['agama'] = null;
+        $registrationData['penjurusan'] = null;
+        $registrationData['asal_sekolah'] = null;
+        $registrationData['alamat'] = null;
         $registrationData['password'] = bcrypt($request->password);
 
         $user = User::create($registrationData);
