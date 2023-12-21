@@ -44,30 +44,39 @@
                         <p>Penjurusan</p>
                         <h6>{{ Auth::user()->penjurusan }}</h6>
                         <p>Tanggal Lahir</p>
-                        <input type="date" name="tanggal_lahir" value="" required class="custom-input"
-                            style="margin-bottom: 10px;">
+                        <input type="date" name="tanggal_lahir" value="{{ Auth::user()->tanggal_lahir }}" required
+                            class="custom-input" style="margin-bottom: 10px;">
+                        <p>Jenis Kelamin</p>
+                        <select name="jenis_kelamin" class="custom-input" style="margin-bottom: 10px;">
+                            <option value="" disabled selected>Pilih Jenis Kelamin</option>
+                            <option value="Laki-laki" {{ Auth::user()->jenis_kelamin === 'Laki-laki' ? 'selected' : '' }}>
+                                Laki-laki</option>
+                            <option value="Perempuan" {{ Auth::user()->jenis_kelamin === 'Perempuan' ? 'selected' : '' }}>
+                                Perempuan</option>
+                        </select>
                         <p>Agama</p>
                         <select name="agama" class="custom-input" style="margin-bottom: 10px;">
                             <option value="" disabled selected>Pilih Agama</option>
-                            <option value="Islam" {{ $user->agama === 'Islam' ? 'selected' : '' }}>Islam</option>
-                            <option value="Kristen" {{ $user->agama === 'Kristen' ? 'selected' : '' }}>Kristen</option>
-                            <option value="Katolik" {{ $user->agama === 'Katolik' ? 'selected' : '' }}>Katolik</option>
-                            <option value="Hindu" {{ $user->agama === 'Hindu' ? 'selected' : '' }}>Hindu</option>
-                            <option value="Buddha" {{ $user->agama === 'Buddha' ? 'selected' : '' }}>Buddha</option>
+                            <option value="Islam" {{ Auth::user()->agama === 'Islam' ? 'selected' : '' }}>Islam</option>
+                            <option value="Kristen" {{ Auth::user()->agama === 'Kristen' ? 'selected' : '' }}>Kristen
+                            </option>
+                            <option value="Katolik" {{ Auth::user()->agama === 'Katolik' ? 'selected' : '' }}>Katolik
+                            </option>
+                            <option value="Hindu" {{ Auth::user()->agama === 'Hindu' ? 'selected' : '' }}>Hindu</option>
+                            <option value="Buddha" {{ Auth::user()->agama === 'Buddha' ? 'selected' : '' }}>Buddha</option>
                         </select>
-
                         <p>Asal Sekolah</p>
-                        <input type="text" name="asal_sekolah" value="" required class="custom-input"
-                            style="margin-bottom: 10px;">
-
+                        <input type="text" name="asal_sekolah" value="{{ Auth::user()->asal_sekolah }}" required
+                            class="custom-input" style="margin-bottom: 10px;">
                         <p>Alamat</p>
-                        <input type="text" name="alamat" value="" required class="custom-input"
-                            style="margin-bottom: 10px;">
+                        <input type="text" name="alamat" value="{{ Auth::user()->alamat }}" required
+                            class="custom-input" style="margin-bottom: 10px;">
                     </div>
                     <div class="button-container">
                         <button type="submit" style="margin-left: 25px;" class="btn btn-success mt-3">Save Changes</button>
                     </div>
                 </form>
+
             </div>
         </div>
     </div>
