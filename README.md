@@ -11,7 +11,7 @@
 
 ## Username & Password Login:
 - Login User:
--     Nomor Induk Siswa: 123456
+-     Nomor Induk Siswa: 55555
 -     Password: 12345
 
 - Login Admin:
